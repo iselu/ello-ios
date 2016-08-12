@@ -32,8 +32,8 @@ before_script:
 - export OBJROOT=./build
 - export CACHE_ROOT=./build_cache
 script:
-  - set -o pipefail && xcodebuild -workspace Ello.xcworkspace -scheme Ello -configuration Debug -destination "OS=9.3,name=iPhone 6s" -parallelizeTargets -derivedDataPath ./derivedData build | xcpretty -f `xcpretty-travis-formatter`
-  - set -o pipefail && xcodebuild -workspace Ello.xcworkspace -scheme Ello -configuration Debug -destination "OS=9.3,name=iPhone 6s" -parallelizeTargets -derivedDataPath ./derivedData test | xcpretty -f `xcpretty-travis-formatter`
+  - set -o pipefail && xcodebuild -workspace Ello.xcworkspace -scheme Ello -configuration Debug -destination "OS=9.3,name=iPhone 6s" -parallelizeTargets -derivedDataPath ./derivedData -sdk iphonesimulator9.3 build | xcpretty -f `xcpretty-travis-formatter`
+  - set -o pipefail && xcodebuild -workspace Ello.xcworkspace -scheme Ello -configuration Debug -destination "OS=9.3,name=iPhone 6s" -parallelizeTargets -derivedDataPath ./derivedData -sdk iphonesimulator9.3 test | xcpretty -f `xcpretty-travis-formatter`
 notifications:
   email: false
   slack:
