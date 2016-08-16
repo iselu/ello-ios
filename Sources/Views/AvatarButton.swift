@@ -3,7 +3,8 @@
 //
 
 public class AvatarButton: UIButton {
-    public var url: NSURL?
+    // for specs; ensure the correct URL is assigned
+    public var imageURL: NSURL?
 
     var starIcon = UIImageView()
     var starIconHidden: Bool {
@@ -32,13 +33,18 @@ public class AvatarButton: UIButton {
     }
 
     func setUser(user: User?) {
-        self.setDefaultImage()
+        setUserAvatarURL(user?.avatarURL())
 
         starIcon.hidden = starIconHidden || (user?.relationshipPriority != .Starred)
+    }
 
-        if let url = user?.avatarURL() {
-            self.url = url
+    func setUserAvatarURL(url: NSURL?) {
+        self.imageURL = url
+        self.setDefaultImage()
 
+        starIcon.hidden = starIconHidden
+
+        if let url = url {
             self.pin_setImageFromURL(url) { result in
                 if result.image != nil {
                     if result.resultType != .MemoryCache {
@@ -54,13 +60,7 @@ public class AvatarButton: UIButton {
                         self.alpha = 1.0
                     }
                 }
-                else {
-                    self.setDefaultImage()
-                }
             }
-        }
-        else {
-            self.url = nil
         }
     }
 

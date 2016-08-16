@@ -24,10 +24,10 @@ class AutoCompleteCellPresenterSpec: QuickSpec {
                     AutoCompleteCellPresenter.configure(cell, item: item)
 
                     expect(cell.name.text) == "@Billy"
-                    expect(cell.avatar.url) == NSURL(string: "http://www.example.com/avatar")!
+                    expect(cell.avatar.imageURL) == NSURL(string: "http://www.example.com/avatar")!
                     expect(cell.selectionStyle) == UITableViewCellSelectionStyle.None
                     expect(cell.name.textColor) == UIColor.whiteColor()
-                    expect(cell.name.font ) == UIFont.defaultFont()
+                    expect(cell.name.font) == UIFont.defaultFont()
                     expect(cell.line.hidden) == false
                     expect(cell.line.backgroundColor) == UIColor.grey3()
                 }
@@ -44,10 +44,10 @@ class AutoCompleteCellPresenterSpec: QuickSpec {
                     AutoCompleteCellPresenter.configure(cell, item: item)
 
                     expect(cell.name.text) == ":thumbsup:"
-                    expect(cell.avatar.url) == NSURL(string: "http://www.example.com/emoji")!
+                    expect(cell.avatar.imageURL) == NSURL(string: "http://www.example.com/emoji")!
                     expect(cell.selectionStyle) == UITableViewCellSelectionStyle.None
                     expect(cell.name.textColor) == UIColor.whiteColor()
-                    expect(cell.name.font ) == UIFont.defaultFont()
+                    expect(cell.name.font) == UIFont.defaultFont()
                     expect(cell.line.hidden) == false
                     expect(cell.line.backgroundColor) == UIColor.grey3()
                 }
