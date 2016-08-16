@@ -127,7 +127,7 @@ private extension ProfileGenerator {
                     inForeground {
                         if userPostItems.count == 0 {
                             sself.hasPosts = false
-                            let user: User = sself.user ?? User(id: sself.userParam, href: "", username: "", name: "", experimentalFeatures: false, relationshipPriority: .None, postsAdultContent: false, viewsAdultContent: false, hasCommentingEnabled: false, hasSharingEnabled: false, hasRepostingEnabled: false, hasLovesEnabled: false)
+                            let user: User = sself.user ?? User.empty(id: sself.userParam)
                             let noItems = [StreamCellItem(jsonable: user, type: .NoPosts)]
                             sself.destination?.replacePlaceholder(.ProfilePosts, items: noItems) {
                                 sself.destination?.pagingEnabled = false

@@ -33,7 +33,7 @@ class AvatarButtonSpec: QuickSpec {
 
                 beforeEach {
                     subject = AvatarButton()
-                    user = User(id: NSUUID().UUIDString, href: "", username: "@ello", name: "", experimentalFeatures: false, relationshipPriority: RelationshipPriority.None, postsAdultContent: false, viewsAdultContent: false, hasCommentingEnabled: true, hasSharingEnabled: true, hasRepostingEnabled: true, hasLovesEnabled: true)
+                    user = User.empty()
                 }
 
                 it("should assign the asset url") {
