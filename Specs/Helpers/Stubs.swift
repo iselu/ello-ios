@@ -52,7 +52,7 @@ extension User: Stubbable {
             hasSharingEnabled: (values["hasSharingEnabled"] as? Bool) ?? true,
             hasRepostingEnabled: (values["hasRepostingEnabled"] as? Bool) ?? true,
             hasLovesEnabled: (values["hasLovesEnabled"] as? Bool) ?? true,
-            hireable: (values["hireable"] as? Bool) ?? false
+            isHireable: (values["isHireable"] as? Bool) ?? false
         )
         user.avatar = values["avatar"] as? Asset
         user.identifiableBy = (values["identifiableBy"] as? String) ?? "stub-user-identifiable-by"

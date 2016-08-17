@@ -30,7 +30,7 @@ public final class User: JSONAble {
     public var hasSharingEnabled: Bool
     public var hasRepostingEnabled: Bool
     public var hasLovesEnabled: Bool
-    public var hireable: Bool
+    public var isHireable: Bool
     // optional
     public var avatar: Asset? // required, but kinda optional due to it being nested in json
     public var identifiableBy: String?
@@ -83,7 +83,7 @@ public final class User: JSONAble {
         hasSharingEnabled: Bool,
         hasRepostingEnabled: Bool,
         hasLovesEnabled: Bool,
-        hireable: Bool)
+        isHireable: Bool)
     {
         self.id = id
         self.href = href
@@ -97,7 +97,7 @@ public final class User: JSONAble {
         self.hasSharingEnabled = hasSharingEnabled
         self.hasRepostingEnabled = hasRepostingEnabled
         self.hasLovesEnabled = hasLovesEnabled
-        self.hireable = hireable
+        self.isHireable = isHireable
         super.init(version: UserVersion)
     }
 
@@ -123,10 +123,10 @@ public final class User: JSONAble {
         // added
         let version: Int = decoder.decodeKey("version")
         if version == 1 {
-            self.hireable = false
+            self.isHireable = false
         }
         else {
-            self.hireable = decoder.decodeKey("hireable")
+            self.isHireable = decoder.decodeKey("isHireable")
         }
         // optional
         self.avatar = decoder.decodeOptionalKey("avatar")
@@ -159,7 +159,7 @@ public final class User: JSONAble {
             hasSharingEnabled: true,
             hasRepostingEnabled: true,
             hasLovesEnabled: true,
-            hireable: false)
+            isHireable: false)
     }
 
     public override func encodeWithCoder(encoder: NSCoder) {
@@ -178,7 +178,7 @@ public final class User: JSONAble {
         coder.encodeObject(hasSharingEnabled, forKey: "hasSharingEnabled")
         coder.encodeObject(hasRepostingEnabled, forKey: "hasRepostingEnabled")
         coder.encodeObject(hasLovesEnabled, forKey: "hasLovesEnabled")
-        coder.encodeObject(hireable, forKey: "hireable")
+        coder.encodeObject(isHireable, forKey: "isHireable")
         // optional
         coder.encodeObject(avatar, forKey: "avatar")
         coder.encodeObject(identifiableBy, forKey: "identifiableBy")
@@ -226,7 +226,7 @@ public final class User: JSONAble {
             hasSharingEnabled: json["has_sharing_enabled"].boolValue,
             hasRepostingEnabled: json["has_reposting_enabled"].boolValue,
             hasLovesEnabled: json["has_loves_enabled"].boolValue,
-            hireable: json["is_hireable"].boolValue
+            isHireable: json["is_hireable"].boolValue
         )
 
         // optional

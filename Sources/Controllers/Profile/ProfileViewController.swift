@@ -382,8 +382,8 @@ extension ProfileViewController {
         relationshipControl.enabled = true
 
         guard user.id == self.currentUser?.id else {
-            hireButton.hidden = !user.hireable
-            mentionButton.hidden = user.hireable
+            hireButton.hidden = !user.isHireable
+            mentionButton.hidden = user.isHireable
             relationshipControl.hidden = false
             editButton.hidden = true
             inviteButton.hidden = true
