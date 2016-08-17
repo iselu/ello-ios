@@ -11,7 +11,10 @@ public class ElloScreen: UIView {
         navigationBar.items = [navigationItem]
         super.init(frame: UIScreen.mainScreen().bounds)
 
+        screenInit()
         style()
+        bindActions()
+        setText()
         arrange()
     }
 
@@ -19,11 +22,16 @@ public class ElloScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func style() {
+    func screenInit() {}
+
+    func style() {
         backgroundColor = .whiteColor()
     }
 
-    private func arrange() {
+    func bindActions() {}
+    func setText() {}
+
+    func arrange() {
         addSubview(streamContainer)
         addSubview(navigationBar)
 
