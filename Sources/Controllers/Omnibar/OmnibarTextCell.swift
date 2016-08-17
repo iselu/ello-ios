@@ -14,16 +14,16 @@ public class OmnibarTextCell: UITableViewCell {
     public var isFirst = false {
         didSet {
             if isFirst && attributedText.string.characters.count == 0 {
-                textView.attributedText = ElloAttributedString.style("Say Ello...", [NSForegroundColorAttributeName: UIColor.blackColor()])
+                textView.attributedText = ElloAttributedString.style(InterfaceString.Omnibar.SayEllo, [NSForegroundColorAttributeName: UIColor.blackColor()])
             }
         }
     }
 
     class func generateTextView() -> UITextView {
         let textView = UITextView()
-        textView.backgroundColor = UIColor.clearColor()
-        textView.textColor = UIColor.blackColor()
-        textView.tintColor = UIColor.blackColor()
+        textView.backgroundColor = .clearColor()
+        textView.textColor = .blackColor()
+        textView.tintColor = .blackColor()
         textView.font = UIFont.editorFont()
         textView.textContainerInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         textView.textContainer.lineFragmentPadding = 0
@@ -43,10 +43,10 @@ public class OmnibarTextCell: UITableViewCell {
                 textView.attributedText = attributedText
             }
             else if isFirst {
-                textView.attributedText = ElloAttributedString.style("Say Ello...", [NSForegroundColorAttributeName: UIColor.blackColor()])
+                textView.attributedText = ElloAttributedString.style(InterfaceString.Omnibar.SayEllo, [NSForegroundColorAttributeName: UIColor.blackColor()])
             }
             else {
-                textView.attributedText = ElloAttributedString.style("Add more text...", [NSForegroundColorAttributeName: UIColor.blackColor()])
+                textView.attributedText = ElloAttributedString.style(InterfaceString.Omnibar.AddMoreText, [NSForegroundColorAttributeName: UIColor.blackColor()])
             }
         }
     }
@@ -59,7 +59,7 @@ public class OmnibarTextCell: UITableViewCell {
         textView.userInteractionEnabled = false
         textView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor.whiteColor()
+        backgroundView.backgroundColor = .whiteColor()
         self.backgroundView = backgroundView
 
         contentView.addSubview(textView)

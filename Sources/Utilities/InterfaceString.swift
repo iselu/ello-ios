@@ -149,6 +149,8 @@ public struct InterfaceString {
     }
 
     public struct Omnibar {
+        static let SayEllo = NSLocalizedString("Say Ello...", comment: "Say Ello prompt")
+        static let AddMoreText = NSLocalizedString("Add more text...", comment: "Add more text prompt")
         static let EnterURL = NSLocalizedString("Enter the URL", comment: "Enter the URL")
         static let CreatePostTitle = NSLocalizedString("Post", comment: "Create a post")
         static let CreatePostButton = NSLocalizedString("Post", comment: "Post")
