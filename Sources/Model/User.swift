@@ -5,7 +5,7 @@
 import Crashlytics
 import SwiftyJSON
 
-let UserVersion: Int = 1
+let UserVersion: Int = 2
 
 @objc(User)
 public final class User: JSONAble {
@@ -114,7 +114,14 @@ public final class User: JSONAble {
         self.hasSharingEnabled = decoder.decodeKey("hasSharingEnabled")
         self.hasRepostingEnabled = decoder.decodeKey("hasRepostingEnabled")
         self.hasLovesEnabled = decoder.decodeKey("hasLovesEnabled")
-        self.hireable = decoder.decodeKey("hireable")
+        // added
+        let version: Int = decoder.decodeKey("version")
+        if version == 1 {
+            self.hireable = false
+        }
+        else {
+            self.hireable = decoder.decodeKey("hireable")
+        }
         // optional
         self.avatar = decoder.decodeOptionalKey("avatar")
         self.identifiableBy = decoder.decodeOptionalKey("identifiableBy")

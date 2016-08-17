@@ -32,7 +32,7 @@ public class DrawerPushAnimator: NSObject, UIViewControllerAnimatedTransitioning
     }
 
     public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return DefaultAnimationDuration
+        return TransitionAnimationDuration
     }
 
     public func animateTransition(context: UIViewControllerContextTransitioning) {
@@ -91,7 +91,7 @@ public class DrawerPopAnimator: NSObject, UIViewControllerAnimatedTransitioning 
                 return 0
             }
         }
-        return DefaultAnimationDuration
+        return TransitionAnimationDuration
     }
 
     public func animateTransition(context: UIViewControllerContextTransitioning) {

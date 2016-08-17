@@ -120,6 +120,7 @@ public struct InterfaceString {
     public struct Profile {
         static let Title = NSLocalizedString("Profile", comment: "Profile Title")
         static let Mention = NSLocalizedString("@ Mention", comment: "Mention button title")
+        static let Hire = NSLocalizedString("Hire", comment: "Hire button title")
         static let Invite = NSLocalizedString("Invite", comment: "Invite button title")
         static let EditProfile = NSLocalizedString("Edit Profile", comment: "Edit Profile button title")
         static let PostsCount = NSLocalizedString("Posts", comment: "Posts count header")
@@ -164,6 +165,10 @@ public struct InterfaceString {
         static let CreatedPost = NSLocalizedString("Post successfully created!", comment: "Post successfully created!")
         static let SellYourWorkTitle = NSLocalizedString("Sell your work", comment: "Sell your work title")
         static let ProductLinkPlaceholder = NSLocalizedString("Product detail URL", comment: "Product detail URL prompt")
+    }
+
+    public struct Hire {
+        static let Send = NSLocalizedString("Send", comment: "Send Button title")
     }
 
     public struct Loves {

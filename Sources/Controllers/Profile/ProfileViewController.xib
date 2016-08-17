@@ -13,6 +13,7 @@
                 <outlet property="editButton" destination="kD4-Ej-tpx" id="jed-1t-Lhd"/>
                 <outlet property="gradientView" destination="hfy-he-l1y" id="CQV-zA-B37"/>
                 <outlet property="gradientViewTopConstraint" destination="w5L-Z5-pfF" id="eOq-gU-AZ3"/>
+                <outlet property="hireButton" destination="62d-xw-0b5" id="Fb9-U5-28l"/>
                 <outlet property="inviteButton" destination="gLE-mz-Ozo" id="wVp-Pv-k7R"/>
                 <outlet property="loaderView" destination="6IW-ht-EC5" id="ebf-Lw-u20"/>
                 <outlet property="mentionButton" destination="DaU-0S-xWR" id="jTJ-Da-Ecr"/>
@@ -82,6 +83,16 @@
                                                 <action selector="mentionButtonTapped" destination="-1" eventType="touchUpInside" id="Pmg-zf-vvO"/>
                                             </connections>
                                         </button>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62d-xw-0b5" userLabel="hireButton" customClass="ElloHireButton" customModule="Ello" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="15" width="100" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="gjR-EL-1q4"/>
+                                            </constraints>
+                                            <state key="normal" title="Hire"/>
+                                            <connections>
+                                                <action selector="hireButtonTapped" destination="-1" eventType="touchUpInside" id="KML-Af-urI"/>
+                                            </connections>
+                                        </button>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLE-mz-Ozo" userLabel="inviteButton" customClass="ElloInviteButton" customModule="Ello" customModuleProvider="target">
                                             <rect key="frame" x="15" y="15" width="100" height="30"/>
                                             <constraints>
@@ -117,7 +128,10 @@
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="ggp-mI-YuR" secondAttribute="bottom" constant="15" id="5ot-OC-TCX"/>
                                         <constraint firstItem="DaU-0S-xWR" firstAttribute="leading" secondItem="v69-vi-xVu" secondAttribute="leading" constant="15" id="AzB-4B-GF9"/>
+                                        <constraint firstItem="62d-xw-0b5" firstAttribute="width" secondItem="DaU-0S-xWR" secondAttribute="width" id="DgD-ov-VtT"/>
+                                        <constraint firstItem="62d-xw-0b5" firstAttribute="leading" secondItem="DaU-0S-xWR" secondAttribute="leading" id="G3Q-C9-iWm"/>
                                         <constraint firstAttribute="bottom" secondItem="DaU-0S-xWR" secondAttribute="bottom" constant="15" id="OBu-80-D0g"/>
+                                        <constraint firstItem="62d-xw-0b5" firstAttribute="top" secondItem="DaU-0S-xWR" secondAttribute="top" id="R8y-2T-bIG"/>
                                         <constraint firstItem="gLE-mz-Ozo" firstAttribute="leading" secondItem="v69-vi-xVu" secondAttribute="leading" constant="15" id="YOv-pH-ks8"/>
                                         <constraint firstAttribute="bottom" secondItem="gLE-mz-Ozo" secondAttribute="bottom" constant="15" id="nwp-XW-zi6"/>
                                         <constraint firstItem="ggp-mI-YuR" firstAttribute="leading" secondItem="DaU-0S-xWR" secondAttribute="trailing" priority="750" constant="10" id="p1s-4G-3pm"/>

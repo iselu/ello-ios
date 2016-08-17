@@ -2,11 +2,11 @@
 ///  Animators.swift
 //
 
-let DefaultAnimationDuration: NSTimeInterval = 0.25
+public let TransitionAnimationDuration: NSTimeInterval = 0.25
 
 public class ForwardAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return DefaultAnimationDuration
+        return TransitionAnimationDuration
     }
 
     public func animateTransition(context: UIViewControllerContextTransitioning) {
@@ -34,7 +34,7 @@ public class ForwardAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
 public class BackAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return DefaultAnimationDuration
+        return TransitionAnimationDuration
     }
 
     public func animateTransition(context: UIViewControllerContextTransitioning) {

@@ -32,6 +32,7 @@ public final class ProfileViewController: StreamableViewController {
     @IBOutlet weak var coverImage: FLAnimatedImageView!
     @IBOutlet weak var relationshipControl: RelationshipControl!
     @IBOutlet weak var mentionButton: UIButton!
+    @IBOutlet weak var hireButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var inviteButton: UIButton!
     @IBOutlet weak var gradientView: UIView!
@@ -107,6 +108,7 @@ public final class ProfileViewController: StreamableViewController {
         super.viewDidLoad()
 
         if user == nil {
+            hireButton.enabled = false
             mentionButton.enabled = false
             editButton.enabled = false
             inviteButton.enabled = false
@@ -299,6 +301,13 @@ public final class ProfileViewController: StreamableViewController {
         createPost(text: "\(user.atName) ", fromController: self)
     }
 
+    @IBAction func hireButtonTapped() {
+        guard let user = user else { return }
+
+        let vc = HireViewController(user: user)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
     @IBAction func editButtonTapped() {
         onEditProfile()
     }
@@ -366,13 +375,15 @@ extension ProfileViewController {
     }
 
     public func updateUser(user: User) {
+        hireButton.enabled = true
         mentionButton.enabled = true
         editButton.enabled = true
         inviteButton.enabled = true
         relationshipControl.enabled = true
 
         guard user.id == self.currentUser?.id else {
-            mentionButton.hidden = false
+            hireButton.hidden = !user.hireable
+            mentionButton.hidden = user.hireable
             relationshipControl.hidden = false
             editButton.hidden = true
             inviteButton.hidden = true
@@ -393,6 +404,7 @@ extension ProfileViewController {
 
         elloNavigationItem.rightBarButtonItem = nil
 
+        hireButton.hidden = true
         mentionButton.hidden = true
         relationshipControl.hidden = true
         editButton.hidden = false

@@ -24,7 +24,8 @@ public struct AnimationOptions {
     let completion: ((Bool) -> Void)?
 }
 
-public func animate(duration duration: NSTimeInterval = 0.2, delay: NSTimeInterval = 0, options: UIViewAnimationOptions = .TransitionNone, animated: Bool = true, completion: ((Bool) -> Void)? = nil, animations: () -> Void) {
+public let DefaultAnimationDuration: NSTimeInterval = 0.2
+public func animate(duration duration: NSTimeInterval = DefaultAnimationDuration, delay: NSTimeInterval = 0, options: UIViewAnimationOptions = .TransitionNone, animated: Bool = true, completion: ((Bool) -> Void)? = nil, animations: () -> Void) {
     let options = AnimationOptions(duration: duration, delay: delay, options: options, completion: completion)
     animate(options, animated: animated, animations: animations)
 }

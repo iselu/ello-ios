@@ -29,6 +29,13 @@ public class ElloMentionButton: ProfileButton {
     }
 }
 
+public class ElloHireButton: ProfileButton {
+    override public func sharedSetup() {
+        super.sharedSetup()
+        setTitle(InterfaceString.Profile.Hire, forState: .Normal)
+    }
+}
+
 public class ElloInviteButton: ProfileButton {
     override public func sharedSetup() {
         super.sharedSetup()
