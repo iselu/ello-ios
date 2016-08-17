@@ -21,7 +21,9 @@ public class OmnibarTextCell: UITableViewCell {
 
     class func generateTextView() -> UITextView {
         let textView = UITextView()
+        textView.backgroundColor = UIColor.clearColor()
         textView.textColor = UIColor.blackColor()
+        textView.tintColor = UIColor.blackColor()
         textView.font = UIFont.editorFont()
         textView.textContainerInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         textView.textContainer.lineFragmentPadding = 0
@@ -30,8 +32,9 @@ public class OmnibarTextCell: UITableViewCell {
         textView.scrollEnabled = false
         textView.showsHorizontalScrollIndicator = false
         textView.showsVerticalScrollIndicator = false
+        textView.keyboardAppearance = .Dark
+        textView.keyboardType = .Twitter
         return textView
-
     }
 
     public var attributedText: NSAttributedString {

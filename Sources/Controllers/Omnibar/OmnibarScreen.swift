@@ -168,10 +168,6 @@ public class OmnibarScreen: UIView, OmnibarScreenProtocol {
     override public init(frame: CGRect) {
         submitableRegions = [.Text("")]
         textView = OmnibarTextCell.generateTextView()
-        textView.backgroundColor = UIColor.clearColor()
-        textView.tintColor = UIColor.blackColor()
-        textView.keyboardAppearance = .Dark
-        textView.keyboardType = .Twitter
 
         super.init(frame: frame)
 
