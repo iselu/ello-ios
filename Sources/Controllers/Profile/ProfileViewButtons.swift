@@ -3,6 +3,11 @@
 //
 
 public class ProfileButton: RoundedElloButton {
+    override public func sharedSetup() {
+        super.sharedSetup()
+        setTitle("", forState: .Disabled)
+    }
+
     override func updateStyle() {
         super.updateStyle()
         if highlighted {
@@ -21,7 +26,6 @@ public class ElloMentionButton: ProfileButton {
     override public func sharedSetup() {
         super.sharedSetup()
         setTitle(InterfaceString.Profile.Mention, forState: .Normal)
-        setTitle("", forState: .Disabled)
     }
 }
 
@@ -29,7 +33,6 @@ public class ElloInviteButton: ProfileButton {
     override public func sharedSetup() {
         super.sharedSetup()
         setTitle(InterfaceString.Profile.Invite, forState: .Normal)
-        setTitle("", forState: .Disabled)
     }
 }
 
@@ -37,6 +40,5 @@ public class ElloEditProfileButton: ProfileButton {
     override public func sharedSetup() {
         super.sharedSetup()
         setTitle(InterfaceString.Profile.EditProfile, forState: .Normal)
-        setTitle("", forState: .Disabled)
     }
 }
