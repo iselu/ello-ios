@@ -16,6 +16,12 @@ public final class User: JSONAble {
     public let href: String
     public let username: String
     public let name: String
+    public var displayName: String {
+        if name.isEmpty {
+            return atName
+        }
+        return name
+    }
     public let experimentalFeatures: Bool
     public var relationshipPriority: RelationshipPriority
     public let postsAdultContent: Bool

@@ -28,7 +28,7 @@ public class HireViewController: BaseElloViewController {
 
         let screen = HireScreen(navigationItem: elloNavigationItem)
         screen.delegate = self
-        screen.recipient = user.name
+        screen.recipient = user.displayName
         self.view = screen
     }
 
