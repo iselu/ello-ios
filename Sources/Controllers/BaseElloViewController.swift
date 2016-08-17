@@ -36,6 +36,15 @@ public class BaseElloViewController: UIViewController, ControllerThatMightHaveTh
 
     func didSetCurrentUser() {}
 
+    @IBAction
+    func backTapped(sender: UIButton) {
+        if let controllers = self.navigationController?.childViewControllers
+            where controllers.count > 1
+        {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
+
     public func isRootViewController() -> Bool {
         if let viewControllers = navigationController?.viewControllers {
             return (viewControllers[0] ) == self

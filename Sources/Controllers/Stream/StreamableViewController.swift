@@ -154,14 +154,6 @@ public class StreamableViewController: BaseElloViewController, PostTappedDelegat
         }
     }
 
-    @IBAction func backTapped(sender: UIButton) {
-        if let controllers = self.navigationController?.childViewControllers
-            where controllers.count > 1
-        {
-            self.navigationController?.popViewControllerAnimated(true)
-        }
-    }
-
 // MARK: PostTappedDelegate
 
     public func postTapped(post: Post) {
