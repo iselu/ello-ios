@@ -69,6 +69,9 @@ public enum InterfaceImage: String {
     // Relationship
     case Star = "star"
 
+    // Buy Button
+    case Mail = "mail"
+
     // Alert
     case Question = "question"
 
@@ -134,6 +137,7 @@ public enum InterfaceImage: String {
              .Heart,
              .Invite,
              .Link,
+             .Mail,
              .Pencil,
              .PlusSmall,
              .Repost,

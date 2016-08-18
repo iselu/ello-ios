@@ -94,8 +94,8 @@ public class HireScreen: ElloScreen {
         keyboardSubmitButton.setTitleColor(.whiteColor(), forState: .Normal)
         keyboardSubmitButton.setTitleColor(.grey6(), forState: .Disabled)
         keyboardSubmitButton.titleLabel?.font = UIFont.defaultFont()
-        keyboardSubmitButton.contentEdgeInsets.left = -5
-        keyboardSubmitButton.imageEdgeInsets.right = 5
+        keyboardSubmitButton.contentEdgeInsets.left = 10
+        keyboardSubmitButton.imageEdgeInsets.right = 20
 
         successView.backgroundColor = .whiteColor()
         successView.alpha = 0
@@ -107,7 +107,7 @@ public class HireScreen: ElloScreen {
     override func setText() {
         super.setText()
 
-        keyboardSubmitButton.setImages(.Pencil, white: true)
+        keyboardSubmitButton.setImages(.Mail, white: true)
         keyboardSubmitButton.setTitle(InterfaceString.Hire.Send, forState: .Normal)
     }
 
