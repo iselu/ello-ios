@@ -320,11 +320,10 @@ extension ElloProvider {
             var newResponseConfig: ResponseConfig?
             if let pagingPath = elloAPI.pagingPath,
                 links = (node as? [String: AnyObject])?["links"] as? [String: AnyObject],
-                pagingPathNode = links[pagingPath] as? [String:AnyObject]
+                pagingPathNode = links[pagingPath] as? [String:AnyObject],
+                pagination = pagingPathNode["pagination"] as? [String: String]
             {
-                if let pagination = pagingPathNode["pagination"] as? [String: String] {
-                    newResponseConfig = self.parsePagination(pagination)
-                }
+                newResponseConfig = self.parsePagination(pagination)
             }
 
             guard elloAPI.mappingType != .NoContentType else {

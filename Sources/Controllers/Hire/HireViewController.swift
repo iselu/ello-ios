@@ -48,14 +48,10 @@ public class HireViewController: BaseElloViewController {
     override public func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
 
-        if let keyboardWillShowObserver = keyboardWillShowObserver {
-            keyboardWillShowObserver.removeObserver()
-            self.keyboardWillShowObserver = nil
-        }
-        if let keyboardWillHideObserver = keyboardWillHideObserver {
-            keyboardWillHideObserver.removeObserver()
-            self.keyboardWillHideObserver = nil
-        }
+        keyboardWillShowObserver?.removeObserver()
+        keyboardWillShowObserver = nil
+        keyboardWillHideObserver?.removeObserver()
+        keyboardWillHideObserver = nil
     }
 
     public func keyboardWillShow(keyboard: Keyboard) {
