@@ -12,14 +12,14 @@ public class HireService {
     public func hire(user user: User, body: String) -> Future<Void> {
         let promise = Promise<Void>()
         ElloProvider.shared.elloRequest(.Hire(userId: user.id, body: body),
-            success: { data, responseConfig in
+            success: { _ in
                 promise.completeWithSuccess(Void())
-            }
+            },
             failure: { error, _ in
                 promise.completeWithFail(error)
             }
         )
-        return p.future
+        return promise.future
     }
 
 }

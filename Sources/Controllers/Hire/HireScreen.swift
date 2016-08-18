@@ -131,8 +131,6 @@ public class HireScreen: ElloScreen {
 
         textView.resignFirstResponder()
         self.delegate?.submit(body: text)
-        self.showSuccess()
-
     }
 
     public func showSuccess() {

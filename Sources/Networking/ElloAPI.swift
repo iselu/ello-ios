@@ -134,11 +134,12 @@ public enum ElloAPI {
         case .EmojiAutoComplete,
              .UserNameAutoComplete:
             return .AutoCompleteResultType
-        case .FlagComment,
-             .DeleteLove,
+        case .DeleteLove,
              .DeleteSubscriptions,
+             .FlagComment,
              .FlagPost,
              .FlagUser,
+             .Hire,
              .InviteFriends,
              .ProfileDelete,
              .PushSubscriptions,

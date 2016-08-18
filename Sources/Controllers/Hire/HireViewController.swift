@@ -70,5 +70,26 @@ public class HireViewController: BaseElloViewController {
 
 extension HireViewController: HireDelegate {
     func submit(body body: String) {
+        self.screen.showSuccess()
+        let hireSuccess = after(2) {
+            self.navigationController?.popViewControllerAnimated(true)
+            delay(DefaultAppleAnimationDuration) {
+                self.screen.hideSuccess()
+            }
+        }
+        // this ensures a minimum 3 second display of the success screen
+        delay(3) {
+            hireSuccess()
+        }
+
+        HireService().hire(user: user, body: body)
+            .onSuccess { _ in
+                hireSuccess()
+            }
+            .onFail { error in
+                self.screen.hideSuccess()
+                let alertController = AlertViewController(error: InterfaceString.GenericError)
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
     }
 }

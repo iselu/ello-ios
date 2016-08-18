@@ -508,6 +508,7 @@
 		1D59EF8C1D63C74F0029C106 /* HireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59EF8A1D63C74F0029C106 /* HireViewController.swift */; };
 		1D59EF8E1D64BB3F0029C106 /* HireScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59EF8D1D64BB3F0029C106 /* HireScreen.swift */; };
 		1D59EF901D64BB490029C106 /* HireProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59EF8F1D64BB490029C106 /* HireProtocols.swift */; };
+		1D59EF921D6624DC0029C106 /* HireService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59EF911D6624DC0029C106 /* HireService.swift */; };
 		1D5A003E1CE3C0A80070B2BF /* FakeKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A003D1CE3C0A80070B2BF /* FakeKeychain.swift */; };
 		1D5A90181D39747E00C2AEFF /* $.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A90171D39747E00C2AEFF /* $.svg */; };
 		1D5A901C1D3991CC00C2AEFF /* buy-button-image-region.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A901B1D3991CC00C2AEFF /* buy-button-image-region.json */; };
@@ -1351,6 +1352,7 @@
 		1D59EF8A1D63C74F0029C106 /* HireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireViewController.swift; sourceTree = "<group>"; };
 		1D59EF8D1D64BB3F0029C106 /* HireScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireScreen.swift; sourceTree = "<group>"; };
 		1D59EF8F1D64BB490029C106 /* HireProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireProtocols.swift; sourceTree = "<group>"; };
+		1D59EF911D6624DC0029C106 /* HireService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireService.swift; sourceTree = "<group>"; };
 		1D5A003D1CE3C0A80070B2BF /* FakeKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeKeychain.swift; sourceTree = "<group>"; };
 		1D5A90171D39747E00C2AEFF /* $.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = $.svg; sourceTree = "<group>"; };
 		1D5A901B1D3991CC00C2AEFF /* buy-button-image-region.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "buy-button-image-region.json"; sourceTree = "<group>"; };
@@ -1846,7 +1848,9 @@
 				1207C95A1C73FEE000939ADB /* ElloS3.swift */,
 				1207C95B1C73FEE000939ADB /* ElloURI.swift */,
 				1207C95C1C73FEE000939ADB /* ErrorStatusCode.swift */,
+				1D59EF911D6624DC0029C106 /* HireService.swift */,
 				1207C95D1C73FEE000939ADB /* InviteService.swift */,
+				123DEBEE1D3D4B71007B5F86 /* LoadingToken.swift */,
 				1207C95E1C73FEE000939ADB /* LovesService.swift */,
 				1207C95F1C73FEE000939ADB /* Mapper.swift */,
 				1207C9601C73FEE000939ADB /* MappingType.swift */,
@@ -1863,7 +1867,6 @@
 				1207C96B1C73FEE000939ADB /* S3UploadingService.swift */,
 				1207C96C1C73FEE000939ADB /* StreamService.swift */,
 				1207C96D1C73FEE000939ADB /* UserService.swift */,
-				123DEBEE1D3D4B71007B5F86 /* LoadingToken.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -4567,6 +4570,7 @@
 				1D273A361D08A480009FD393 /* BlockUserModalConfig.swift in Sources */,
 				1DFC26A91AF297150051D491 /* NSErrorExtensions.swift in Sources */,
 				12D43A491AC865540039F54F /* StreamToggleCell.swift in Sources */,
+				1D59EF921D6624DC0029C106 /* HireService.swift in Sources */,
 				EA004C921AC356CB0021B44B /* ElloTextFieldView.swift in Sources */,
 				12CFF6A61B16BD13007CE68F /* TwoLineButton.swift in Sources */,
 				7659FB7F1B29EE0F00DEB6F4 /* StreamInviteFriendsCell.swift in Sources */,

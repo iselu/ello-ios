@@ -25,6 +25,7 @@ public struct AnimationOptions {
 }
 
 public let DefaultAnimationDuration: NSTimeInterval = 0.2
+public let DefaultAppleAnimationDuration: NSTimeInterval = 0.3
 public func animate(duration duration: NSTimeInterval = DefaultAnimationDuration, delay: NSTimeInterval = 0, options: UIViewAnimationOptions = .TransitionNone, animated: Bool = true, completion: ((Bool) -> Void)? = nil, animations: () -> Void) {
     let options = AnimationOptions(duration: duration, delay: delay, options: options, completion: completion)
     animate(options, animated: animated, animations: animations)
