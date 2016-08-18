@@ -10,6 +10,12 @@ import Nimble
 
 class ProfileViewControllerSpec: QuickSpec {
     override func spec() {
+        beforeEach {
+            ElloLinkedStore.sharedInstance.writeConnection.readWriteWithBlock { transaction in
+                transaction.removeObjectForKey("42", inCollection: "users")
+            }
+        }
+
         describe("ProfileViewController") {
             let currentUser: User = stub([:])
 
@@ -77,6 +83,34 @@ class ProfileViewControllerSpec: QuickSpec {
                     let rightButtons = subject.elloNavigationItem.rightBarButtonItems
                     expect(rightButtons?.count ?? 0) == 0
                 }
+                context("user is hireable") {
+                    beforeEach {
+                        currentUser = User.stub(["id": "42", "isHireable": true])
+                        subject = ProfileViewController(user: currentUser)
+                        subject.currentUser = currentUser
+                        showController(subject)
+                    }
+                    it("has hidden mentionButton") {
+                        expect(subject.mentionButton.hidden) == true
+                    }
+                    it("has hidden hireButton") {
+                        expect(subject.hireButton.hidden) == true
+                    }
+                }
+                context("user is NOT hireable") {
+                    beforeEach {
+                        currentUser = User.stub(["id": "42", "isHireable": false])
+                        subject = ProfileViewController(user: currentUser)
+                        subject.currentUser = currentUser
+                        showController(subject)
+                    }
+                    it("has hidden mentionButton") {
+                        expect(subject.mentionButton.hidden) == true
+                    }
+                    it("has hidden hireButton") {
+                        expect(subject.hireButton.hidden) == true
+                    }
+                }
             }
 
             context("when NOT displaying the currentUser") {
@@ -92,6 +126,50 @@ class ProfileViewControllerSpec: QuickSpec {
 
                 it("has 'share' and 'more following options' buttons") {
                     expect(subject.elloNavigationItem.rightBarButtonItems?.count) == 2
+                }
+
+                context("user is hireable") {
+                    beforeEach {
+                        ElloProvider.sharedProvider = ElloProvider.RecordedStubbingProvider([
+                            RecordedResponse(endpoint: .UserStream(userParam: "hireable"), response: .NetworkResponse(200, stubbedData("user_details_hireable"))),
+                        ])
+
+                        currentUser = User.stub(["id": "not42"])
+                        subject = ProfileViewController(userParam: "hireable")
+                        subject.currentUser = currentUser
+                        showController(subject)
+                    }
+                    it("user is hireable") {
+                        expect(subject.user?.isHireable) == true
+                    }
+                    it("has hidden mentionButton") {
+                        expect(subject.mentionButton.hidden) == true
+                    }
+                    it("has visible hireButton") {
+                        expect(subject.hireButton.hidden) == false
+                    }
+                }
+
+                context("user is NOT hireable") {
+                    beforeEach {
+                        ElloProvider.sharedProvider = ElloProvider.RecordedStubbingProvider([
+                            RecordedResponse(endpoint: .UserStream(userParam: "not-hireable"), response: .NetworkResponse(200, stubbedData("user_details_not_hireable"))),
+                        ])
+
+                        currentUser = User.stub(["id": "not42"])
+                        subject = ProfileViewController(userParam: "not-hireable")
+                        subject.currentUser = currentUser
+                        showController(subject)
+                    }
+                    it("user is not hireable") {
+                        expect(subject.user?.isHireable) == false
+                    }
+                    it("has visible mentionButton") {
+                        expect(subject.mentionButton.hidden) == false
+                    }
+                    it("has hidden hireButton") {
+                        expect(subject.hireButton.hidden) == true
+                    }
                 }
             }
 

@@ -167,16 +167,19 @@ public func timeout(duration: NSTimeInterval, block: BasicBlock) -> BasicBlock {
 }
 
 public func delay(duration: NSTimeInterval, block: BasicBlock) {
-    let proc = Proc(block)
-    _ = NSTimer.scheduledTimerWithTimeInterval(duration, target: proc, selector: #selector(Proc.run), userInfo: nil, repeats: false)
+    let killTimeOffset = Int64(CDouble(duration) * CDouble(NSEC_PER_SEC))
+    let killTime = dispatch_time(DISPATCH_TIME_NOW, killTimeOffset)
+    dispatch_after(killTime, dispatch_get_main_queue(), block)
 }
 
 public func cancelableDelay(duration: NSTimeInterval, block: BasicBlock) -> BasicBlock {
-    let proc = Proc(block)
-    let timer = NSTimer.scheduledTimerWithTimeInterval(duration, target: proc, selector: #selector(Proc.run), userInfo: nil, repeats: false)
-    return {
-        timer.invalidate()
+    let killTimeOffset = Int64(CDouble(duration) * CDouble(NSEC_PER_SEC))
+    let killTime = dispatch_time(DISPATCH_TIME_NOW, killTimeOffset)
+    var cancelled = false
+    dispatch_after(killTime, dispatch_get_main_queue()) {
+        if !cancelled { block() }
     }
+    return { cancelled = true }
 }
 
 public func debounce(timeout: NSTimeInterval, block: BasicBlock) -> BasicBlock {

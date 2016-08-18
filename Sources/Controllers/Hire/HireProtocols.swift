@@ -7,4 +7,7 @@ protocol HireDelegate: class {
 }
 
 protocol HireScreenProtocol: class {
+    func toggleKeyboard(visible visible: Bool)
+    func showSuccess()
+    func hideSuccess()
 }

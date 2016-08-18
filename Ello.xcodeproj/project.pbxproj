@@ -512,6 +512,10 @@
 		1D59EF961D6640C50029C106 /* mail_normal.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1D59EF931D6640C50029C106 /* mail_normal.svg */; };
 		1D59EF971D6640C50029C106 /* mail_selected.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1D59EF941D6640C50029C106 /* mail_selected.svg */; };
 		1D59EF981D6640C50029C106 /* mail_white.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1D59EF951D6640C50029C106 /* mail_white.svg */; };
+		1D59EF9F1D6654680029C106 /* user_details_hireable.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D59EF9D1D6654680029C106 /* user_details_hireable.json */; };
+		1D59EFA01D6654680029C106 /* user_details_not_hireable.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D59EF9E1D6654680029C106 /* user_details_not_hireable.json */; };
+		1D59EFA41D6659FF0029C106 /* HireScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59EFA21D6659FF0029C106 /* HireScreenSpec.swift */; };
+		1D59EFA51D6659FF0029C106 /* HireViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59EFA31D6659FF0029C106 /* HireViewControllerSpec.swift */; };
 		1D5A003E1CE3C0A80070B2BF /* FakeKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A003D1CE3C0A80070B2BF /* FakeKeychain.swift */; };
 		1D5A90181D39747E00C2AEFF /* $.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A90171D39747E00C2AEFF /* $.svg */; };
 		1D5A901C1D3991CC00C2AEFF /* buy-button-image-region.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A901B1D3991CC00C2AEFF /* buy-button-image-region.json */; };
@@ -1359,6 +1363,10 @@
 		1D59EF931D6640C50029C106 /* mail_normal.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mail_normal.svg; sourceTree = "<group>"; };
 		1D59EF941D6640C50029C106 /* mail_selected.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mail_selected.svg; sourceTree = "<group>"; };
 		1D59EF951D6640C50029C106 /* mail_white.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mail_white.svg; sourceTree = "<group>"; };
+		1D59EF9D1D6654680029C106 /* user_details_hireable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_details_hireable.json; sourceTree = "<group>"; };
+		1D59EF9E1D6654680029C106 /* user_details_not_hireable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_details_not_hireable.json; sourceTree = "<group>"; };
+		1D59EFA21D6659FF0029C106 /* HireScreenSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireScreenSpec.swift; sourceTree = "<group>"; };
+		1D59EFA31D6659FF0029C106 /* HireViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireViewControllerSpec.swift; sourceTree = "<group>"; };
 		1D5A003D1CE3C0A80070B2BF /* FakeKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeKeychain.swift; sourceTree = "<group>"; };
 		1D5A90171D39747E00C2AEFF /* $.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = $.svg; sourceTree = "<group>"; };
 		1D5A901B1D3991CC00C2AEFF /* buy-button-image-region.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "buy-button-image-region.json"; sourceTree = "<group>"; };
@@ -2256,7 +2264,6 @@
 		12D14C5A1A4375A100C6F8E8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1D652F5F1BC3055E00AF3B06 /* Onboarding */,
 				F864AD951AD467BD009645BF /* Alerts */,
 				12D14C821A43765300C6F8E8 /* App */,
 				122C66381B4252620035F4CD /* AutoComplete */,
@@ -2265,10 +2272,12 @@
 				12347A971AA8BDEF00736B42 /* Drawer */,
 				1D6680211A89BBF4003E93C8 /* ElloNavigationControllerSpec.swift */,
 				12D14C791A43763B00C6F8E8 /* ElloTabBarControllerSpec.swift */,
+				1D59EFA11D6659ED0029C106 /* Hire */,
 				867B52791B1781D700177084 /* IntroViewControllerSpec.swift */,
 				121D92571A5CACC7004F0455 /* Join */,
 				12D14C7A1A43763B00C6F8E8 /* NotificationsViewControllerSpec.swift */,
 				12551FBC1A6873A300ABC5D9 /* Omnibar */,
+				1D652F5F1BC3055E00AF3B06 /* Onboarding */,
 				768043741AC202D3004FEE09 /* Profile */,
 				F87A101D1AF1700F00A48E7F /* PushNotificationControllerSpec.swift */,
 				76FF80571A9691DB00617A1E /* Relationship */,
@@ -2920,6 +2929,15 @@
 			path = Hire;
 			sourceTree = "<group>";
 		};
+		1D59EFA11D6659ED0029C106 /* Hire */ = {
+			isa = PBXGroup;
+			children = (
+				1D59EFA21D6659FF0029C106 /* HireScreenSpec.swift */,
+				1D59EFA31D6659FF0029C106 /* HireViewControllerSpec.swift */,
+			);
+			path = Hire;
+			sourceTree = "<group>";
+		};
 		1D652F5F1BC3055E00AF3B06 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -3006,6 +3024,8 @@
 				1DD8299F1BD93D3600105CDE /* relationship_following.json */,
 				1DD829A01BD93D3600105CDE /* relationship_inactive.json */,
 				1DD829A11BD93D3600105CDE /* relationship_starred.json */,
+				1D59EF9D1D6654680029C106 /* user_details_hireable.json */,
+				1D59EF9E1D6654680029C106 /* user_details_not_hireable.json */,
 				1D6C97F71CE179E600E7B929 /* usernames.json */,
 				123DEBF01D3D5F32007B5F86 /* users_posts.json */,
 			);
@@ -3575,6 +3595,7 @@
 				76F8DEF41B6C0BC4009BCF61 /* repost_white.svg in Resources */,
 				127502D71AE99D6500FED224 /* full_examples_full_post_details.json in Resources */,
 				7689B4EC1AD4ED3B00E4A4A3 /* invitations_inviting_users_by_email.json in Resources */,
+				1D59EFA01D6654680029C106 /* user_details_not_hireable.json in Resources */,
 				1DA8FD711B98A63600472B1E /* reorder_selected.svg in Resources */,
 				76F8DEF61B6C0BC4009BCF61 /* search_selected.svg in Resources */,
 				76B1A6431AE5960F00110D30 /* StreamEmbedCell.xib in Resources */,
@@ -3774,6 +3795,7 @@
 				7689B5031AD4ED3B00E4A4A3 /* relationships_blocking_an_abusive_user.json in Resources */,
 				1DF7416B1BFA650E000F5349 /* link_white.svg in Resources */,
 				12F6AE8C1A433F1100493660 /* friends.json in Resources */,
+				1D59EF9F1D6654680029C106 /* user_details_hireable.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4130,6 +4152,7 @@
 				1D5A003E1CE3C0A80070B2BF /* FakeKeychain.swift in Sources */,
 				1DBF807C1A9F9F7E00A73BDA /* ElloScrollLogicSpec.swift in Sources */,
 				768043781AC20382004FEE09 /* FakeProfileHeaderCellSizeCalculator.swift in Sources */,
+				1D59EFA51D6659FF0029C106 /* HireViewControllerSpec.swift in Sources */,
 				EAF43D991AB0EBE60016E110 /* InviteCacheSpec.swift in Sources */,
 				127535211B73F7B2006B9A0F /* NSDateSpecs.swift in Sources */,
 				1D9225541C3B23E000553BAE /* ExperienceUpdateSpec.swift in Sources */,
@@ -4213,6 +4236,7 @@
 				1294EBAC1B2B1CB30020F38A /* StreamEmbedCellPresenterSpec.swift in Sources */,
 				1DC4285B1BBB021700D5E38B /* AppSetupSpec.swift in Sources */,
 				1D061B521AAA1C6D00493435 /* StringExtensionSpec.swift in Sources */,
+				1D59EFA41D6659FF0029C106 /* HireScreenSpec.swift in Sources */,
 				122C663E1B4253890035F4CD /* AutoCompleteCellPresenterSpec.swift in Sources */,
 				1D8835A41CD90B7700E1C387 /* DynamicSettingsViewControllerSpec.swift in Sources */,
 				1D81E1D11C4E8DE6001C63DC /* ReauthenticationSpec.swift in Sources */,

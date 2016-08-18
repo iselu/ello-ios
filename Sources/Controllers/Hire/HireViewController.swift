@@ -4,7 +4,8 @@
 
 public class HireViewController: BaseElloViewController {
     var user: User
-    var screen: HireScreen { return self.view as! HireScreen }
+    var mockScreen: HireScreenProtocol?
+    var screen: HireScreenProtocol { return mockScreen ?? (self.view as! HireScreenProtocol) }
     var keyboardWillShowObserver: NotificationObserver?
     var keyboardWillHideObserver: NotificationObserver?
 
@@ -66,6 +67,8 @@ public class HireViewController: BaseElloViewController {
 
 extension HireViewController: HireDelegate {
     func submit(body body: String) {
+        guard !body.isEmpty else { return }
+
         self.screen.showSuccess()
         let hireSuccess = after(2) {
             self.navigationController?.popViewControllerAnimated(true)

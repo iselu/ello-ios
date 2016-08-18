@@ -152,8 +152,9 @@ extension HireScreen: UITextViewDelegate {
         let hasText = textView.text?.isEmpty != true
         placeholder.hidden = hasText
         keyboardSubmitButton.enabled = hasText
+        keyboardSubmitButton.backgroundColor = hasText ? .greenD1() : .blackColor()
     }
 }
 
-extension HireViewController: HireScreenProtocol {
+extension HireScreen: HireScreenProtocol {
 }
