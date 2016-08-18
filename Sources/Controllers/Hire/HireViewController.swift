@@ -69,7 +69,6 @@ public class HireViewController: BaseElloViewController {
 }
 
 extension HireViewController: HireDelegate {
-    func doneHiring() {
-        self.navigationController?.popViewControllerAnimated(true)
+    func submit(body body: String) {
     }
 }

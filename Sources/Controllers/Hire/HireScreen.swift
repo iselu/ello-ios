@@ -127,17 +127,23 @@ public class HireScreen: ElloScreen {
     }
 
     public func submitAction() {
+        guard let text = textView.text else { return }
+
         textView.resignFirstResponder()
+        self.delegate?.submit(body: text)
+        self.showSuccess()
+
+    }
+
+    public func showSuccess() {
         animate {
             self.successView.alpha = 1
-            delay(3) {
-                animate {
-                    self.successView.alpha = 0
-                }
-            }
         }
-        delay(DefaultAnimationDuration) {
-            self.delegate?.doneHiring()
+    }
+
+    public func hideSuccess() {
+        animate {
+            self.successView.alpha = 0
         }
     }
 

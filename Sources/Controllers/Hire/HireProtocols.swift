@@ -3,7 +3,7 @@
 //
 
 protocol HireDelegate: class {
-    func doneHiring()
+    func submit(body body: String)
 }
 
 protocol HireScreenProtocol: class {
