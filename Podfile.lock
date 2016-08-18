@@ -26,6 +26,7 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.2):
     - FBSnapshotTestCase/Core
   - FLAnimatedImage (1.0.12)
+  - FutureKit (2.0.0)
   - ImagePickerSheetController (0.9.1)
   - iRate (1.11.4)
   - JTSImageViewController (1.5)
@@ -130,6 +131,7 @@ DEPENDENCIES:
   - Fabric (~> 1.6)
   - FBSnapshotTestCase (from `https://github.com/ello/ios-snapshot-test-case`)
   - FLAnimatedImage (~> 1.0)
+  - FutureKit (~> 2.0)
   - ImagePickerSheetController
   - iRate (~> 1.11)
   - JTSImageViewController (from `https://github.com/ello/JTSImageViewController`)
@@ -228,6 +230,7 @@ SPEC CHECKSUMS:
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   FBSnapshotTestCase: 918c55861356ee83aee7843d759f55a18ff6982b
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  FutureKit: 409baf0c683f4cdd1784b90782f43386ca3749a5
   ImagePickerSheetController: 3c58c9fee6dcf36485222358a021f6b734f997ba
   iRate: 599ed07c854e0695f3c605d1b2a64c67d912acb7
   JTSImageViewController: 89ae3c003060c65418fd3224ebbd67acc6046608
@@ -253,6 +256,6 @@ SPEC CHECKSUMS:
   WebLinking: d5b5ab4f7305bcf29821deb5cecd775f6c37efae
   YapDatabase: 861c720d5850a59f9e5c0bad0fd95334012b9dc9
 
-PODFILE CHECKSUM: 41859bc1ce4ff942a37fd56023db4449b8b0f928
+PODFILE CHECKSUM: c83838dd7cf48d9ca3fb97883fdf6fbdae9f0f64
 
 COCOAPODS: 1.0.0

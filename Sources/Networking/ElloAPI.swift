@@ -32,6 +32,7 @@ public enum ElloAPI {
     case FlagUser(userId: String, kind: String)
     case FriendStream
     case FriendNewContent(createdAt: NSDate)
+    case Hire(userId: String, body: String)
     case InfiniteScroll(queryItems: [AnyObject], elloApi: () -> ElloAPI)
     case InviteFriends(contact: String)
     case Join(email: String, username: String, password: String, invitationCode: String?)
@@ -205,6 +206,7 @@ extension ElloAPI: Moya.TargetType {
                  .FlagComment,
                  .FlagPost,
                  .FlagUser,
+                 .Hire,
                  .InviteFriends,
                  .Join,
                  .PushSubscriptions,
@@ -291,6 +293,8 @@ extension ElloAPI: Moya.TargetType {
         case .FriendNewContent,
              .FriendStream:
             return "/api/\(ElloAPI.apiVersion)/streams/friend"
+        case let .Hire(userId, _):
+            return "/api/\(ElloAPI.apiVersion)/users/\(userId)/hire_me"
         case let .InfiniteScroll(_, elloApi):
             let api = elloApi()
             if let pagingPath = api.pagingPath {
@@ -405,6 +409,8 @@ extension ElloAPI: Moya.TargetType {
         case .FriendStream,
              .InfiniteScroll:
             return stubbedData("activity_streams_friend_stream")
+        case .Hire:
+            return stubbedData("empty")
         case .Join:
             return stubbedData("users_registering_an_account")
         case .Loves:
@@ -574,6 +580,10 @@ extension ElloAPI: Moya.TargetType {
         case .FriendStream:
             return [
                 "per_page": 10
+            ]
+        case let .Hire(_, body):
+            return [
+                "body": body
             ]
         case let .InfiniteScroll(queryItems, elloApi):
             var queryDict = [String: AnyObject]()

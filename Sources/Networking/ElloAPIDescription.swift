@@ -31,6 +31,8 @@ extension ElloAPI: CustomStringConvertible, CustomDebugStringConvertible {
             return "FlagPost(postId: \(postId), kind: \(kind))"
         case let .FlagUser(userId, kind):
             return "FlagUser(userId: \(userId), kind: \(kind))"
+        case let .Hire(userId, body):
+            return "Hire(userId: \(userId), body: \(body.characters.count))"
         case let .InfiniteScroll(_, elloApi):
             return "InfiniteScroll(elloApi: \(elloApi()))"
         case let .Loves(userId):
@@ -129,6 +131,8 @@ extension ElloAPI: CustomStringConvertible, CustomDebugStringConvertible {
             return "FriendNewContent"
         case .FriendStream:
             return "FriendStream"
+        case .Hire:
+            return "Hire"
         case .InfiniteScroll:
             return "InfiniteScroll"
         case .InviteFriends:
