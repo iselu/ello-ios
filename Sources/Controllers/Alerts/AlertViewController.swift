@@ -127,6 +127,12 @@ public class AlertViewController: UIViewController {
     public required init(coder aDecoder: NSCoder) {
         fatalError("This isn't implemented")
     }
+
+    public convenience init(error: String, handler: AlertHandler = nil) {
+        self.init(message: error)
+        let action = AlertAction(title: InterfaceString.OK, style: .Dark, handler: handler)
+        addAction(action)
+    }
 }
 
 public extension AlertViewController {

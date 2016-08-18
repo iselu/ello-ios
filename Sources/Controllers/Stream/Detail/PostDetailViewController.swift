@@ -89,11 +89,9 @@ public final class PostDetailViewController: StreamableViewController {
 
     private func showPostLoadFailure() {
         let message = InterfaceString.GenericError
-        let alertController = AlertViewController(message: message)
-        let action = AlertAction(title: InterfaceString.OK, style: .Dark) { _ in
+        let alertController = AlertViewController(error: message) { _ in
             self.navigationController?.popViewControllerAnimated(true)
         }
-        alertController.addAction(action)
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 
