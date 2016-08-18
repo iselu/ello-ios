@@ -74,7 +74,11 @@ let UnknownJSONAbleVersion = 1
 
 @objc(UnknownJSONAble)
 public class UnknownJSONAble: JSONAble {
-     override class public func fromJSON(data: [String : AnyObject], fromLinked: Bool = false) -> JSONAble {
-        return UnknownJSONAble(version: UnknownJSONAbleVersion)
+    public convenience init() {
+        self.init(version: UnknownJSONAbleVersion)
+    }
+
+    override class public func fromJSON(data: [String : AnyObject], fromLinked: Bool = false) -> JSONAble {
+        return UnknownJSONAble()
     }
 }

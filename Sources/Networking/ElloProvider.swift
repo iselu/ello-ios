@@ -315,22 +315,29 @@ extension ElloProvider {
     }
 
     private func parseLinked(elloAPI: ElloAPI, dict: [String:AnyObject], responseConfig: ResponseConfig, success: ElloSuccessCompletion, failure: ElloFailureCompletion) {
-        var newResponseConfig: ResponseConfig?
         let completion: ElloEmptyCompletion = {
+            let node = dict[elloAPI.mappingType.rawValue]
+            var newResponseConfig: ResponseConfig?
+            if let pagingPath = elloAPI.pagingPath,
+                links = (node as? [String: AnyObject])?["links"] as? [String: AnyObject],
+                pagingPathNode = links[pagingPath] as? [String:AnyObject]
+            {
+                if let pagination = pagingPathNode["pagination"] as? [String: String] {
+                    newResponseConfig = self.parsePagination(pagination)
+                }
+            }
+
+            guard elloAPI.mappingType != .NoContentType else {
+                success(data: UnknownJSONAble(), responseConfig: newResponseConfig ?? responseConfig)
+                return
+            }
+
             let mappedObjects: AnyObject?
-            if let node = dict[elloAPI.mappingType.rawValue] as? [[String:AnyObject]] {
+            if let node = node as? [[String: AnyObject]] {
                 mappedObjects = Mapper.mapToObjectArray(node, fromJSON: elloAPI.mappingType.fromJSON)
             }
-            else if let node = dict[elloAPI.mappingType.rawValue] as? [String:AnyObject] {
+            else if let node = node as? [String: AnyObject] {
                 mappedObjects = Mapper.mapToObject(node, fromJSON: elloAPI.mappingType.fromJSON)
-                if let pagingPath = elloAPI.pagingPath,
-                    links = node["links"] as? [String:AnyObject],
-                    pagingPathNode = links[pagingPath] as? [String:AnyObject]
-                {
-                    if let pagination = pagingPathNode["pagination"] as? [String:String] {
-                        newResponseConfig = self.parsePagination(pagination)
-                    }
-                }
             }
             else {
                 mappedObjects = nil
