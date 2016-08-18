@@ -84,6 +84,7 @@ extension HireViewController: HireDelegate {
 
         HireService().hire(user: user, body: body)
             .onSuccess { _ in
+                Tracker.sharedTracker.hiredUser(self.user)
                 hireSuccess()
             }
             .onFail { error in

@@ -238,6 +238,16 @@ public extension Tracker {
     }
 }
 
+// MARK: Hire Me
+public extension Tracker {
+    func tappedHire(user: User) {
+        agent.track("open hire dialog profile", properties: ["id": user.id])
+    }
+    func hiredUser(user: User) {
+        agent.track("send hire dialog profile", properties: ["id": user.id])
+    }
+}
+
 // MARK: Share Extension
 public extension Tracker {
     func shareSuccessful() {

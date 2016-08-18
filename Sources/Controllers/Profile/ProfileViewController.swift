@@ -304,6 +304,7 @@ public final class ProfileViewController: StreamableViewController {
     @IBAction func hireButtonTapped() {
         guard let user = user else { return }
 
+        Tracker.sharedTracker.tappedHire(user)
         let vc = HireViewController(user: user)
         self.navigationController?.pushViewController(vc, animated: true)
     }
