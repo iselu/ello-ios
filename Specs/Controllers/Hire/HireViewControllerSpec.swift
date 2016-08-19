@@ -45,7 +45,7 @@ class HireViewControllerSpec: QuickSpec {
             navigationController = FakeNavigationController(rootViewController: subject)
         }
 
-        fdescribe("HireViewController") {
+        describe("HireViewController") {
             describe("submit(body:\"\")") {
                 beforeEach {
                     subject.submit(body: "")
