@@ -51,23 +51,23 @@ class ElloManagerSpec: QuickSpec {
                     it("includes 2 ssl certificates in the app") {
                         AppSetup.sharedState.isSimulator = false
                         let policy = ElloManager.serverTrustPolicies["ello.co"]!
-                        var doesValidatesChain = false
+                        var doesValidateChain = false
                         var doesValidateHost = false
-                        var keys = [SecKey]()
+                        let keys: [SecKey]
                         switch policy {
                         case let .PinPublicKeys(publicKeys, validateCertificateChain, validateHost):
-                            doesValidatesChain = validateCertificateChain
+                            doesValidateChain = validateCertificateChain
                             doesValidateHost = validateHost
                             keys = publicKeys
-                        default: break
+                        default:
+                            keys = []
                         }
 
-                        expect(doesValidatesChain) == true
+                        expect(doesValidateChain) == true
                         expect(doesValidateHost) == true
-                        let numberOfCerts = 3
-                        // Charles installs a cert, and we should allow that, so test
-                        // for numberOfCerts OR numberOfCerts + 1
-                        expect(keys.count == numberOfCerts || keys.count == numberOfCerts + 1) == true
+                        let minNumberOfCerts = 2
+                        // make sure there's a cert, and at least one backup
+                        expect(keys.count) >= minNumberOfCerts
                     }
                 }
             }

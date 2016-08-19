@@ -217,7 +217,7 @@ class UserSpec: QuickSpec {
                         let unArchivedUser = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as! User
 
                         expect(unArchivedUser).toNot(beNil())
-                        expect(unArchivedUser.version) == 1
+                        expect(unArchivedUser.version) == UserVersion
 
                         expect(unArchivedUser.avatarURL()?.absoluteString) == "http://www.example.com"
                         expect(unArchivedUser.coverImageURL(viewsAdultContent: true)?.absoluteString) == "http://www.example2.com"
