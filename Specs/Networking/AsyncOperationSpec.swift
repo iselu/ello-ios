@@ -23,7 +23,7 @@ class AsyncOperationSpec: QuickSpec {
                 beforeEach {
                     executed = false
                     subject = AsyncOperation() { done in
-                        delay(0.1) {
+                        delay(0.1, background: true) {
                             executed = true
                             done()
                         }
@@ -79,7 +79,7 @@ class AsyncOperationSpec: QuickSpec {
                     let subject = AsyncOperation()
                     queue.addOperation(subject)
                     waitUntil { done in
-                        delay(0.1) {
+                        delay(0.1, background: true) {
                             expect(subject.executing) == true
                             queue.cancelAllOperations()
                             subject.run {

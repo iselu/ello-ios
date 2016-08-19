@@ -166,10 +166,11 @@ public func timeout(duration: NSTimeInterval, block: BasicBlock) -> BasicBlock {
     return handler
 }
 
-public func delay(duration: NSTimeInterval, block: BasicBlock) {
+public func delay(duration: NSTimeInterval, background: Bool = false, block: BasicBlock) {
     let killTimeOffset = Int64(CDouble(duration) * CDouble(NSEC_PER_SEC))
     let killTime = dispatch_time(DISPATCH_TIME_NOW, killTimeOffset)
-    dispatch_after(killTime, dispatch_get_main_queue(), block)
+    let queue = background ? dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0) : dispatch_get_main_queue()
+    dispatch_after(killTime, queue, block)
 }
 
 public func cancelableDelay(duration: NSTimeInterval, block: BasicBlock) -> BasicBlock {
