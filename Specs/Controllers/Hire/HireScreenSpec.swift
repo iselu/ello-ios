@@ -25,6 +25,10 @@ class HireScreenSpec: QuickSpec {
                     Keyboard.shared.bottomInset = 216
                     subject.toggleKeyboard(visible: true)
                 }
+                afterEach {
+                    Keyboard.shared.active = false
+                    Keyboard.shared.bottomInset = 0
+                }
                 it("should have a valid snapshot") {
                     expectValidSnapshot(subject, device: .Phone6_Portrait)
                 }
