@@ -2,7 +2,7 @@
 ///  ElloScreen.swift
 //
 
-public class ElloScreen: UIView {
+public class ElloScreen: Screen {
     let navigationBar = ElloNavigationBar()
     var navigationBarTopConstraint: NSLayoutConstraint!
     let streamContainer = UIView()
@@ -10,28 +10,13 @@ public class ElloScreen: UIView {
     public required init(navigationItem: UINavigationItem) {
         navigationBar.items = [navigationItem]
         super.init(frame: UIScreen.mainScreen().bounds)
-
-        screenInit()
-        style()
-        bindActions()
-        setText()
-        arrange()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func screenInit() {}
-
-    func style() {
-        backgroundColor = .whiteColor()
-    }
-
-    func bindActions() {}
-    func setText() {}
-
-    func arrange() {
+    override func arrange() {
         addSubview(streamContainer)
         addSubview(navigationBar)
 
