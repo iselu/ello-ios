@@ -4,8 +4,8 @@
 
 public class Screen: UIView {
 
-    public required init(frame: CGRect) {
-        super.init(frame)
+    public required override init(frame: CGRect) {
+        super.init(frame: frame)
 
         backgroundColor = .whiteColor()
 
@@ -25,5 +25,4 @@ public class Screen: UIView {
     func bindActions() {}
     func setText() {}
     func arrange() {}
-
 }

@@ -326,7 +326,6 @@
 		12931BD91BFE8E30009B26F9 /* xpmmini_normal.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12931BD11BFE8E30009B26F9 /* xpmmini_normal.svg */; };
 		12931BDA1BFE8E30009B26F9 /* xpmmini_selected.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12931BD21BFE8E30009B26F9 /* xpmmini_selected.svg */; };
 		1294EBAC1B2B1CB30020F38A /* StreamEmbedCellPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294EBAB1B2B1CB30020F38A /* StreamEmbedCellPresenterSpec.swift */; };
-		1294EBAE1B2B6CA00020F38A /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1294EBAD1B2B6CA00020F38A /* App.storyboard */; };
 		1299D6A71ACEBE1000D47B35 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD9CF31ACDCCAA0073BDF0 /* UICollectionViewExtensions.swift */; };
 		12A313D91C73ECAA009727DD /* unselected-pixel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A313D81C73ECAA009727DD /* unselected-pixel@2x.png */; };
 		12A3A46F1AB348FB00D2AFB0 /* ElloPullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A3A46E1AB348FB00D2AFB0 /* ElloPullToRefreshView.swift */; };
@@ -542,6 +541,7 @@
 		1D71528F1D6CA22C005998FE /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D71528E1D6CA22C005998FE /* Screen.swift */; };
 		1D7152931D6CA248005998FE /* StartupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7152911D6CA248005998FE /* StartupScreen.swift */; };
 		1D7152941D6CA248005998FE /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7152921D6CA248005998FE /* StartupViewController.swift */; };
+		1D71529C1D6D0558005998FE /* AppScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D71529B1D6D0558005998FE /* AppScreen.swift */; };
 		1D73AB871C569EAE00D708B9 /* SafariActivitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D73AB861C569EAE00D708B9 /* SafariActivitySpec.swift */; };
 		1D73AB8A1C56A01E00D708B9 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D73AB881C569EB600D708B9 /* SafariActivity.swift */; };
 		1D73AB901C57C85600D708B9 /* AuthStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D73AB8F1C57C85600D708B9 /* AuthStateSpec.swift */; };
@@ -1169,7 +1169,6 @@
 		12931BD11BFE8E30009B26F9 /* xpmmini_normal.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = xpmmini_normal.svg; sourceTree = "<group>"; };
 		12931BD21BFE8E30009B26F9 /* xpmmini_selected.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = xpmmini_selected.svg; sourceTree = "<group>"; };
 		1294EBAB1B2B1CB30020F38A /* StreamEmbedCellPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamEmbedCellPresenterSpec.swift; sourceTree = "<group>"; };
-		1294EBAD1B2B6CA00020F38A /* App.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = App.storyboard; path = sources/controllers/App/App.storyboard; sourceTree = SOURCE_ROOT; };
 		12A2C93E1AEFDC90002DFD75 /* PreloaderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreloaderSpec.swift; path = specs/Utilities/PreloaderSpec.swift; sourceTree = SOURCE_ROOT; };
 		12A313D81C73ECAA009727DD /* unselected-pixel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unselected-pixel@2x.png"; sourceTree = "<group>"; };
 		12A3A46E1AB348FB00D2AFB0 /* ElloPullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ElloPullToRefreshView.swift; path = sources/Views/ElloPullToRefreshView.swift; sourceTree = SOURCE_ROOT; };
@@ -1395,6 +1394,7 @@
 		1D71528E1D6CA22C005998FE /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		1D7152911D6CA248005998FE /* StartupScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupScreen.swift; sourceTree = "<group>"; };
 		1D7152921D6CA248005998FE /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
+		1D71529B1D6D0558005998FE /* AppScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppScreen.swift; sourceTree = "<group>"; };
 		1D73AB861C569EAE00D708B9 /* SafariActivitySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivitySpec.swift; sourceTree = "<group>"; };
 		1D73AB881C569EB600D708B9 /* SafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		1D73AB8F1C57C85600D708B9 /* AuthStateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthStateSpec.swift; sourceTree = "<group>"; };
@@ -2559,7 +2559,7 @@
 		12F6AE1C1A43385600493660 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				1294EBAD1B2B6CA00020F38A /* App.storyboard */,
+				1D71529B1D6D0558005998FE /* AppScreen.swift */,
 				12F6AE1D1A43386300493660 /* AppViewController.swift */,
 				1D24AA501B7E8CD5004BAAFA /* DebugTodoController.swift */,
 				1DF322411BD6F16C008203F3 /* DebugViewsController.swift */,
@@ -3570,7 +3570,6 @@
 				7689B5091AD4ED3B00E4A4A3 /* users_listing_user_followings.json in Resources */,
 				7689B4DC1AD4ED3B00E4A4A3 /* activity_streams_noise_stream.json in Resources */,
 				EA004C941AC357320021B44B /* ElloTextFieldView.xib in Resources */,
-				1294EBAE1B2B6CA00020F38A /* App.storyboard in Resources */,
 				76F8DEEB1B6C0BC4009BCF61 /* relationships_normal.svg in Resources */,
 				76F8DEAF1B6C0BC4009BCF61 /* arrow_normal.svg in Resources */,
 				EA68A0E81AADF62F003F0425 /* empty.json in Resources */,
@@ -4351,6 +4350,7 @@
 				F8FDB1B81AC0B81500A59266 /* UIScreenEdgePanGestureRecognizer.swift in Sources */,
 				1DF233611A94FB060096DA65 /* CGRectExtensions.swift in Sources */,
 				1207C9891C73FEE000939ADB /* PostService.swift in Sources */,
+				1D71529C1D6D0558005998FE /* AppScreen.swift in Sources */,
 				122B30F51C6A3FC500C1B9D8 /* RegionKind.swift in Sources */,
 				76A9664C1AE996C500FB1A52 /* StreamRegionableCell.swift in Sources */,
 				125F28841B1D0CD400BA501E /* DrawerCell.swift in Sources */,

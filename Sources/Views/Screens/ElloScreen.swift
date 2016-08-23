@@ -7,13 +7,9 @@ public class ElloScreen: Screen {
     var navigationBarTopConstraint: NSLayoutConstraint!
     let streamContainer = UIView()
 
-    public required init(navigationItem: UINavigationItem) {
+    convenience init(navigationItem: UINavigationItem) {
+        self.init(frame: UIScreen.mainScreen().bounds)
         navigationBar.items = [navigationItem]
-        super.init(frame: UIScreen.mainScreen().bounds)
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     override func arrange() {

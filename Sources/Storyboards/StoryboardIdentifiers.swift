@@ -17,7 +17,6 @@ public enum StoryboardIdentifier: String {
     case Post = "PostViewController"
     case Omnibar = "OmnibarViewController"
     case ElloTabBar = "ElloTabBarController"
-    case App = "AppViewController"
     case Join = "JoinViewController"
     case Settings = "SettingsViewController"
     case DynamicSettings = "DynamicSettingsViewController"
