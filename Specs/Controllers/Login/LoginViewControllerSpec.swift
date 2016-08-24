@@ -1,5 +1,5 @@
 ////
-///  SignInViewControllerSpec.swift
+///  LoginViewControllerSpec.swift
 //
 
 @testable import Ello
@@ -7,14 +7,14 @@ import Quick
 import Nimble
 
 
-class SignInViewControllerSpec: QuickSpec {
+class LoginViewControllerSpec: QuickSpec {
     override func spec() {
-        describe("SignInViewController") {
-            var subject = SignInViewController()
+        describe("LoginViewController") {
+            var subject = LoginViewController()
             let screenHeight = subject.view.bounds.size.height
 
             beforeEach {
-                subject = SignInViewController()
+                subject = LoginViewController()
                 showController(subject)
             }
 
@@ -61,8 +61,8 @@ class SignInViewControllerSpec: QuickSpec {
                     expect(subject).to(beAKindOf(BaseElloViewController.self))
                 }
 
-                it("is a SignInViewController") {
-                    expect(subject).to(beAKindOf(SignInViewController.self))
+                it("is a LoginViewController") {
+                    expect(subject).to(beAKindOf(LoginViewController.self))
                 }
             }
 

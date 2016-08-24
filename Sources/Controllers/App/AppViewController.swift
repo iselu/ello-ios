@@ -178,9 +178,9 @@ extension AppViewController {
 
     public func showLoginScreen() {
         pushPayload = .None
-        let signInController = SignInViewController()
-        signInController.parentAppController = self
-        swapViewController(signInController)
+        let loginController = LoginViewController()
+        loginController.parentAppController = self
+        swapViewController(loginController)
         Crashlytics.sharedInstance().setObjectValue("Login", forKey: CrashlyticsKey.StreamName.rawValue)
     }
 
@@ -656,8 +656,8 @@ extension AppViewController {
 // MARK: - IBActions
 public extension AppViewController {
 
-    @IBAction func signInTapped(sender: ElloButton) {
-        Tracker.sharedTracker.tappedSignInFromStartup()
+    @IBAction func loginTapped(sender: ElloButton) {
+        Tracker.sharedTracker.tappedLoginFromStartup()
         showLoginScreen()
     }
 

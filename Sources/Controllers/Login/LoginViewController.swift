@@ -1,11 +1,11 @@
 ////
-///  SignIn.swift
+///  LoginViewController.swift
 //
 
 import Alamofire
 import OnePasswordExtension
 
-public class SignInViewController: BaseElloViewController, HasAppController {
+public class LoginViewController: BaseElloViewController, HasAppController {
 
     @IBOutlet weak public var enterButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak public var scrollView: UIScrollView!
@@ -24,7 +24,7 @@ public class SignInViewController: BaseElloViewController, HasAppController {
     var parentAppController: AppViewController?
 
     required public init() {
-        super.init(nibName: "SignInViewController", bundle: NSBundle(forClass: SignInViewController.self))
+        super.init(nibName: nil, bundle: nil)
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -92,13 +92,13 @@ public class SignInViewController: BaseElloViewController, HasAppController {
 
     private func invalidCredentialsReason() -> String {
         if !trimmedEmail.isValidEmail() {
-            return InterfaceString.SignIn.EmailInvalid
+            return InterfaceString.Login.EmailInvalid
         }
         else if !password.isValidPassword() {
-            return InterfaceString.SignIn.PasswordInvalid
+            return InterfaceString.Login.PasswordInvalid
         }
         else {
-            return InterfaceString.SignIn.CredentialsInvalid
+            return InterfaceString.Login.CredentialsInvalid
         }
     }
 
@@ -117,13 +117,13 @@ public class SignInViewController: BaseElloViewController, HasAppController {
     }
 
     func submit() {
-        Tracker.sharedTracker.tappedSignIn()
+        Tracker.sharedTracker.tappedLogin()
 
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
 
         if hasValidCredentials() {
-            Tracker.sharedTracker.signInValid()
+            Tracker.sharedTracker.loginValid()
             hideErrorLabel()
             disableInputs()
 
@@ -134,18 +134,18 @@ public class SignInViewController: BaseElloViewController, HasAppController {
                 password: password,
                 success: {
 
-                    Tracker.sharedTracker.signInSuccessful()
+                    Tracker.sharedTracker.loginSuccessful()
                     self.loadCurrentUser()
                 },
                 failure: { (error, statusCode) in
-                    Tracker.sharedTracker.signInFailed()
+                    Tracker.sharedTracker.loginFailed()
                     self.enableInputs()
                     let errorTitle = error.elloErrorMessage ?? InterfaceString.UnknownError
                     self.showErrorLabel(errorTitle)
             })
         }
         else {
-            Tracker.sharedTracker.signInInvalid()
+            Tracker.sharedTracker.loginInvalid()
             let errorTitle = invalidCredentialsReason()
             showErrorLabel(errorTitle)
         }
@@ -154,7 +154,7 @@ public class SignInViewController: BaseElloViewController, HasAppController {
     private func loadCurrentUser() {
         parentAppController?.loadCurrentUser() { error in
             self.enableInputs()
-            let errorTitle = error.elloErrorMessage ?? InterfaceString.SignIn.LoadUserError
+            let errorTitle = error.elloErrorMessage ?? InterfaceString.Login.LoadUserError
             self.showErrorLabel(errorTitle)
         }
     }
@@ -203,14 +203,14 @@ public class SignInViewController: BaseElloViewController, HasAppController {
 
         browser.showsURLInNavigationBar = false
         browser.showsPageTitleInNavigationBar = false
-        browser.title = InterfaceString.SignIn.ForgotPassword
+        browser.title = InterfaceString.Login.ForgotPassword
         browser.toolbarHidden = true
 
         presentViewController(nav, animated: true, completion: nil)
     }
 
     @IBAction func joinTapped(sender: ElloTextButton) {
-        Tracker.sharedTracker.tappedJoinFromSignIn()
+        Tracker.sharedTracker.tappedJoinFromLogin()
         let joinController = JoinViewController()
         parentAppController?.swapViewController(joinController)
     }
@@ -245,7 +245,7 @@ public class SignInViewController: BaseElloViewController, HasAppController {
     }
 }
 
-extension SignInViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
 
     public func textFieldShouldReturn(textField: UITextField) -> Bool {
         switch textField {

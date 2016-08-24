@@ -103,17 +103,17 @@ public extension Tracker {
         agent.track("tapped join from startup")
     }
 
-    func tappedSignInFromStartup() {
+    func tappedLoginFromStartup() {
         log("tapped sign in from startup")
         agent.track("tapped sign in from startup")
     }
 
-    func tappedJoinFromSignIn() {
+    func tappedJoinFromLogin() {
         log("tapped join from sign-in")
         agent.track("tapped join from sign-in")
     }
 
-    func tappedSignInFromJoin() {
+    func tappedLoginFromJoin() {
         log("tapped sign in from join")
         agent.track("tapped sign in from join")
     }
@@ -168,27 +168,27 @@ public extension Tracker {
         agent.track("join failed")
     }
 
-    func tappedSignIn() {
+    func tappedLogin() {
         log("tapped sign in")
         agent.track("tapped sign in")
     }
 
-    func signInValid() {
+    func loginValid() {
         log("sign-in valid")
         agent.track("sign-in valid")
     }
 
-    func signInInvalid() {
+    func loginInvalid() {
         log("sign-in invalid")
         agent.track("sign-in invalid")
     }
 
-    func signInSuccessful() {
+    func loginSuccessful() {
         log("sign-in successful")
         agent.track("sign-in successful")
     }
 
-    func signInFailed() {
+    func loginFailed() {
         log("sign-in failed")
         agent.track("sign-in failed")
     }

@@ -334,7 +334,6 @@
 		12B093661A6D87C000BF104E /* StreamContainerViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B093651A6D87C000BF104E /* StreamContainerViewControllerSpec.swift */; };
 		12B093681A6E146C00BF104E /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B093671A6E146C00BF104E /* UIBarButtonItem.swift */; };
 		12B0936F1A6E1B1A00BF104E /* ElloNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B0936E1A6E1B1A00BF104E /* ElloNavigationController.swift */; };
-		12B530FE1A93A15000E01D72 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B530FD1A93A15000E01D72 /* SignInViewController.xib */; };
 		12B531011A93B75700E01D72 /* ElloLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B531001A93B75700E01D72 /* ElloLogoView.swift */; };
 		12BCEA3E1B6C0D4500AD85A9 /* NewContentServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BCEA3D1B6C0D4500AD85A9 /* NewContentServiceSpec.swift */; };
 		12BF3CC11B66D68000CF4AE0 /* DateFormattingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BF3CC01B66D68000CF4AE0 /* DateFormattingSpec.swift */; };
@@ -363,7 +362,7 @@
 		12D14C751A43762A00C6F8E8 /* ElloSpecHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D14C741A43762A00C6F8E8 /* ElloSpecHelper.swift */; };
 		12D14C7D1A43763B00C6F8E8 /* ElloTabBarControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D14C791A43763B00C6F8E8 /* ElloTabBarControllerSpec.swift */; };
 		12D14C7E1A43763B00C6F8E8 /* NotificationsViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D14C7A1A43763B00C6F8E8 /* NotificationsViewControllerSpec.swift */; };
-		12D14C901A43769800C6F8E8 /* SignInViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D14C8F1A43769800C6F8E8 /* SignInViewControllerSpec.swift */; };
+		12D14C901A43769800C6F8E8 /* LoginViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D14C8F1A43769800C6F8E8 /* LoginViewControllerSpec.swift */; };
 		12D24A5A1A9F765300F53D44 /* AddFriendsViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D24A591A9F765300F53D44 /* AddFriendsViewControllerSpec.swift */; };
 		12D43A461AC864CC0039F54F /* StreamToggleCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D43A451AC864CC0039F54F /* StreamToggleCellPresenter.swift */; };
 		12D43A491AC865540039F54F /* StreamToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D43A481AC865540039F54F /* StreamToggleCell.swift */; };
@@ -385,7 +384,7 @@
 		12F6ADFD1A43380C00493660 /* ElloTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F6ADF81A43380C00493660 /* ElloTabBarController.swift */; };
 		12F6ADFF1A43380C00493660 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F6ADFA1A43380C00493660 /* ProfileViewController.swift */; };
 		12F6AE1E1A43386300493660 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F6AE1D1A43386300493660 /* AppViewController.swift */; };
-		12F6AE241A43389B00493660 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F6AE231A43389B00493660 /* SignInViewController.swift */; };
+		12F6AE241A43389B00493660 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F6AE231A43389B00493660 /* LoginViewController.swift */; };
 		12F6AE2E1A43390900493660 /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F6AE271A43390900493660 /* ImageExtensions.swift */; };
 		12F6AE2F1A43390900493660 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F6AE281A43390900493660 /* NumberExtensions.swift */; };
 		12F6AE301A43390900493660 /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F6AE291A43390900493660 /* Optionals.swift */; };
@@ -1184,7 +1183,6 @@
 		12B093651A6D87C000BF104E /* StreamContainerViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StreamContainerViewControllerSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		12B093671A6E146C00BF104E /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		12B0936E1A6E1B1A00BF104E /* ElloNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElloNavigationController.swift; sourceTree = "<group>"; };
-		12B530FD1A93A15000E01D72 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		12B531001A93B75700E01D72 /* ElloLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElloLogoView.swift; sourceTree = "<group>"; };
 		12BA14411AB20F7500D5018B /* amazon-credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "amazon-credentials.json"; path = "resources/StubbedResponses/amazon-credentials.json"; sourceTree = SOURCE_ROOT; };
 		12BCEA3D1B6C0D4500AD85A9 /* NewContentServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = NewContentServiceSpec.swift; path = specs/Networking/NewContentServiceSpec.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -1221,7 +1219,7 @@
 		12D14C781A43763B00C6F8E8 /* DiscoverViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewControllerSpec.swift; sourceTree = "<group>"; };
 		12D14C791A43763B00C6F8E8 /* ElloTabBarControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ElloTabBarControllerSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		12D14C7A1A43763B00C6F8E8 /* NotificationsViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewControllerSpec.swift; sourceTree = "<group>"; };
-		12D14C8F1A43769800C6F8E8 /* SignInViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewControllerSpec.swift; sourceTree = "<group>"; };
+		12D14C8F1A43769800C6F8E8 /* LoginViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSpec.swift; sourceTree = "<group>"; };
 		12D24A591A9F765300F53D44 /* AddFriendsViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsViewControllerSpec.swift; sourceTree = "<group>"; };
 		12D43A451AC864CC0039F54F /* StreamToggleCellPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamToggleCellPresenter.swift; path = sources/controllers/stream/CellDequeing/StreamToggleCellPresenter.swift; sourceTree = SOURCE_ROOT; };
 		12D43A481AC865540039F54F /* StreamToggleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamToggleCell.swift; path = sources/controllers/stream/Cells/StreamToggleCell.swift; sourceTree = SOURCE_ROOT; };
@@ -1244,7 +1242,7 @@
 		12F6ADF81A43380C00493660 /* ElloTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElloTabBarController.swift; sourceTree = "<group>"; };
 		12F6ADFA1A43380C00493660 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		12F6AE1D1A43386300493660 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
-		12F6AE231A43389B00493660 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		12F6AE231A43389B00493660 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		12F6AE271A43390900493660 /* ImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
 		12F6AE281A43390900493660 /* NumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
 		12F6AE291A43390900493660 /* Optionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optionals.swift; sourceTree = "<group>"; };
@@ -2303,7 +2301,7 @@
 				76FF80571A9691DB00617A1E /* Relationship */,
 				1DEE2BED1AF96F4300EB9DFA /* Search */,
 				EA7BA1DE1AC05AC500A42D1E /* Settings */,
-				12D14C841A43766D00C6F8E8 /* SignIn */,
+				12D14C841A43766D00C6F8E8 /* Login */,
 				1D7152A51D6E0E20005998FE /* Startup */,
 				121E46BB1A6B2704004AEAB7 /* Stream */,
 				1DBF85BF1AF8022200889349 /* WebBrowser */,
@@ -2443,12 +2441,12 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		12D14C841A43766D00C6F8E8 /* SignIn */ = {
+		12D14C841A43766D00C6F8E8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				12D14C8F1A43769800C6F8E8 /* SignInViewControllerSpec.swift */,
+				12D14C8F1A43769800C6F8E8 /* LoginViewControllerSpec.swift */,
 			);
-			path = SignIn;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		12F0E3A21A4332E80012CEA2 /* Support */ = {
@@ -2565,7 +2563,7 @@
 				76E5CBE71A92678500D6483F /* Relationship */,
 				1D33284C1AE74D6100446591 /* Search */,
 				EA8990161ABB4B0F00339CBE /* Settings */,
-				12F6AE221A43387B00493660 /* SignIn */,
+				12F6AE221A43387B00493660 /* Login */,
 				1D7152901D6CA236005998FE /* Startup */,
 				12B093641A6D874300BF104E /* Stream */,
 				1DADC5781AF449A5000DAC88 /* WebBrowser */,
@@ -2594,13 +2592,12 @@
 			path = Join;
 			sourceTree = "<group>";
 		};
-		12F6AE221A43387B00493660 /* SignIn */ = {
+		12F6AE221A43387B00493660 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				12F6AE231A43389B00493660 /* SignInViewController.swift */,
-				12B530FD1A93A15000E01D72 /* SignInViewController.xib */,
+				12F6AE231A43389B00493660 /* LoginViewController.swift */,
 			);
-			path = SignIn;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		12F6AE251A4338F600493660 /* Extensions */ = {
@@ -3721,7 +3718,6 @@
 				7689B4E81AD4ED3B00E4A4A3 /* discovery_listing_random_users.json in Resources */,
 				76F8DEC01B6C0BC4009BCF61 /* checksmall_normal.svg in Resources */,
 				1D59337E1D1455E700EAF03D /* dots_light_normal.svg in Resources */,
-				12B530FE1A93A15000E01D72 /* SignInViewController.xib in Resources */,
 				76F8DEF11B6C0BC4009BCF61 /* replyall_selected.svg in Resources */,
 				1DC309FC1B03F29300EAD920 /* communities.json in Resources */,
 				76F8DEBE1B6C0BC4009BCF61 /* check_normal.svg in Resources */,
@@ -4294,7 +4290,7 @@
 				1DB17B981AAA70B200DCF59E /* MultipartRequestBuilderSpec.swift in Sources */,
 				12D14C751A43762A00C6F8E8 /* ElloSpecHelper.swift in Sources */,
 				766CAEF21AAA5E2D009E9266 /* Stubs.swift in Sources */,
-				12D14C901A43769800C6F8E8 /* SignInViewControllerSpec.swift in Sources */,
+				12D14C901A43769800C6F8E8 /* LoginViewControllerSpec.swift in Sources */,
 				766375E31AA911530096FA51 /* UserListViewControllerSpec.swift in Sources */,
 				12551FBE1A6873D600ABC5D9 /* OmnibarViewControllerSpec.swift in Sources */,
 				1D652F5E1BC2FDCD00AF3B06 /* ElloTabBarSpec.swift in Sources */,
@@ -4563,7 +4559,7 @@
 				1207C9811C73FEE000939ADB /* InviteService.swift in Sources */,
 				1275351D1B73D155006B9A0F /* NSDate.swift in Sources */,
 				7666C95E1B10055C009AC019 /* AddFriendsViewController.swift in Sources */,
-				12F6AE241A43389B00493660 /* SignInViewController.swift in Sources */,
+				12F6AE241A43389B00493660 /* LoginViewController.swift in Sources */,
 				1D2B50BB1D272A6400F6CE90 /* BlackBar.swift in Sources */,
 				1D98563B1C6D7D3300C1BF78 /* DrawerAnimators.swift in Sources */,
 				EAF43D8E1AB0B5AC0016E110 /* InviteCache.swift in Sources */,

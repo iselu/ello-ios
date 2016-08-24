@@ -228,19 +228,19 @@ public class JoinViewController: BaseElloViewController, HasAppController {
     }
 
     private func showLoginScreen(email: String, _ password: String) {
-        let signInController = SignInViewController()
-        _ = signInController.view
-        signInController.showErrorFromJoin(InterfaceString.Join.SignInAfterJoinError)
-        signInController.emailTextField.text = email
-        signInController.passwordTextField.text = password
-        signInController.enterButton.enabled = true
+        let loginController = LoginViewController()
+        _ = loginController.view
+        loginController.showErrorFromJoin(InterfaceString.Join.LoginAfterJoinError)
+        loginController.emailTextField.text = email
+        loginController.passwordTextField.text = password
+        loginController.enterButton.enabled = true
 
-        parentAppController?.swapViewController(signInController)
+        parentAppController?.swapViewController(loginController)
     }
 
     private func showLoginScreen() {
-        let signInController = SignInViewController()
-        parentAppController?.swapViewController(signInController)
+        let loginController = LoginViewController()
+        parentAppController?.swapViewController(loginController)
     }
 
     private func showTerms() {
@@ -308,7 +308,7 @@ extension JoinViewController {
     }
 
     @IBAction func loginTapped(sender: ElloTextButton) {
-        Tracker.sharedTracker.tappedSignInFromJoin()
+        Tracker.sharedTracker.tappedLoginFromJoin()
         showLoginScreen()
     }
 
