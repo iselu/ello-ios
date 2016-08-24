@@ -6,10 +6,6 @@ import SnapKit
 
 
 public class AppScreen: EmptyScreen {
-    struct Size {
-        static let topLogoOffset: CGFloat = 210
-    }
-
     private var logoImage = ElloLogoView()
 
     override func arrange() {
@@ -18,10 +14,12 @@ public class AppScreen: EmptyScreen {
 
         logoImage.snp_makeConstraints { make in
             make.centerX.equalTo(self)
-            make.centerY.equalTo(self.snp_top).offset(Size.topLogoOffset).priorityMedium()
+            make.centerY.equalTo(self)
         }
     }
+}
 
+extension AppScreen: AppScreenProtocol {
     func animateLogo() {
         logoImage.animateLogo()
     }
@@ -33,5 +31,4 @@ public class AppScreen: EmptyScreen {
     func hide() {
         logoImage.alpha = 0
     }
-
 }

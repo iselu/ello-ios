@@ -3,7 +3,8 @@
 //
 
 public class StartupViewController: UIViewController {
-    var screen: StartupScreen { return self.view as! StartupScreen }
+    var mockScreen: StartupScreenProtocol?
+    var screen: StartupScreenProtocol { return mockScreen ?? (self.view as! StartupScreenProtocol) }
     var parentAppController: AppViewController?
 
     override public func loadView() {

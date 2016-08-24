@@ -17,7 +17,8 @@ protocol HasAppController {
 
 
 public class AppViewController: BaseElloViewController {
-    var screen: AppScreen { return self.view as! AppScreen }
+    var mockScreen: AppScreenProtocol?
+    var screen: AppScreenProtocol { return mockScreen ?? (self.view as! AppScreenProtocol) }
 
     var visibleViewController: UIViewController?
     private var userLoggedOutObserver: NotificationObserver?

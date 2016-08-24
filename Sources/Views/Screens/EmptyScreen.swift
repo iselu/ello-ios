@@ -3,7 +3,7 @@
 //
 
 public class EmptyScreen: Screen {
-    private var blackBar = BlackBar()
+    var blackBar = BlackBar()
 
     override func arrange() {
         addSubview(blackBar)

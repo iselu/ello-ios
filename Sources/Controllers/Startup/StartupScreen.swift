@@ -7,8 +7,12 @@ import SnapKit
 
 public class StartupScreen: EmptyScreen {
     struct Size {
-        static let topLogoOffset: CGFloat = 245
+        static let topLogoOffset: CGFloat = 100
+        static let bottomLogoOffset: CGFloat = 90
         static let logoSize: CGFloat = 250
+        static let buttonInset: CGFloat = 10
+        static let buttonHeight: CGFloat = 50
+        static let maxButtonWidth: CGFloat = 414 - 2 * buttonInset
     }
 
     weak var delegate: StartupDelegate?
@@ -58,20 +62,23 @@ public class StartupScreen: EmptyScreen {
 
         logoImage.snp_makeConstraints { make in
             make.centerX.equalTo(self)
-            make.centerY.equalTo(self.snp_top).offset(Size.topLogoOffset).priorityMedium()
+            make.top.equalTo(blackBar.snp_bottom).offset(Size.topLogoOffset).priorityMedium()
             make.size.equalTo(CGSize(width: Size.logoSize, height: Size.logoSize))
-            make.bottom.lessThanOrEqualTo(signUpButton.snp_top).offset(15).priorityHigh()
+            make.top.greaterThanOrEqualTo(blackBar.snp_bottom).priorityRequired()
+            make.bottom.lessThanOrEqualTo(signUpButton.snp_top).offset(-Size.bottomLogoOffset).priorityRequired()
         }
 
         loginButton.snp_makeConstraints { make in
-            make.left.right.bottom.equalTo(self).inset(10)
-            make.height.equalTo(50)
+            make.bottom.equalTo(self).offset(-Size.buttonInset)
+            make.centerX.equalTo(self)
+            make.height.equalTo(Size.buttonHeight)
+            make.width.equalTo(self).offset(-2 * Size.buttonInset).priorityMedium()
+            make.width.lessThanOrEqualTo(Size.maxButtonWidth).priorityRequired()
         }
 
         signUpButton.snp_makeConstraints { make in
-            make.left.right.equalTo(self).inset(10)
-            make.bottom.equalTo(loginButton.snp_top).offset(-10)
-            make.height.equalTo(loginButton.snp_height)
+            make.centerX.width.height.equalTo(loginButton)
+            make.bottom.equalTo(loginButton.snp_top).offset(-Size.buttonInset)
         }
     }
 }
@@ -85,3 +92,5 @@ extension StartupScreen {
         delegate?.loginAction()
     }
 }
+
+extension StartupScreenProtocol {}
