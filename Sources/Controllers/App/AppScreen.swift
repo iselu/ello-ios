@@ -5,14 +5,15 @@
 import SnapKit
 
 
-public class AppScreen: Screen {
+public class AppScreen: EmptyScreen {
     struct Size {
-        static let topLogoOffset: CGFloat = 110
+        static let topLogoOffset: CGFloat = 210
     }
 
     private var logoImage = ElloLogoView()
 
     override func arrange() {
+        super.arrange()
         addSubview(logoImage)
 
         logoImage.snp_makeConstraints { make in

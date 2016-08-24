@@ -2,5 +2,5 @@
 ///  DiscoverAllCategoriesScreen.swift
 //
 
-public class DiscoverAllCategoriesScreen: ElloScreen {
+public class DiscoverAllCategoriesScreen: StreamableScreen {
 }

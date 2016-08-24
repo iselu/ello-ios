@@ -37,6 +37,11 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         }
 
+        let window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window.rootViewController = AppViewController()
+        window.makeKeyAndVisible()
+        self.window = window
+
         UIApplication.sharedApplication().statusBarStyle = .LightContent
 
         setupGlobalStyles()

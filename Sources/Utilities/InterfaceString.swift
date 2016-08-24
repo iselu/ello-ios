@@ -242,6 +242,11 @@ public struct InterfaceString {
         static let TermsAndConditions = NSLocalizedString("Terms and Conditions", comment: "terms and conditions title")
     }
 
+    public struct Startup {
+        static let SignUp = NSLocalizedString("Sign Up", comment: "sign up button")
+        static let Login = NSLocalizedString("Login", comment: "login button")
+    }
+
     public struct SignIn {
         static let EmailInvalid = NSLocalizedString("Invalid email or username", comment: "Invalid email or username message")
         static let PasswordInvalid = NSLocalizedString("Invalid password", comment: "Invalid password message")

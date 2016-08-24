@@ -5,7 +5,7 @@
 import SnapKit
 
 
-public class HireScreen: ElloScreen {
+public class HireScreen: StreamableScreen {
     struct Size {
         static let keyboardButtonHeight: CGFloat = 44
         static let textViewTopMargin: CGFloat = 40

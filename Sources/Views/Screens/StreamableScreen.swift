@@ -1,8 +1,8 @@
 ////
-///  ElloScreen.swift
+///  StreamableScreen.swift
 //
 
-public class ElloScreen: Screen {
+public class StreamableScreen: Screen {
     let navigationBar = ElloNavigationBar()
     var navigationBarTopConstraint: NSLayoutConstraint!
     let streamContainer = UIView()

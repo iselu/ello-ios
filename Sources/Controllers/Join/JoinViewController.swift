@@ -197,7 +197,7 @@ public class JoinViewController: BaseElloViewController, HasAppController {
                             failure: { _, _ in
                                 Tracker.sharedTracker.joinFailed()
                                 self.view.userInteractionEnabled = true
-                                self.showSignInScreen(self.email, self.password)
+                                self.showLoginScreen(self.email, self.password)
                             })
                     },
                     failure: { error, _ in
@@ -227,7 +227,7 @@ public class JoinViewController: BaseElloViewController, HasAppController {
         parentAppController?.showOnboardingScreen(user)
     }
 
-    private func showSignInScreen(email: String, _ password: String) {
+    private func showLoginScreen(email: String, _ password: String) {
         let signInController = SignInViewController()
         _ = signInController.view
         signInController.showErrorFromJoin(InterfaceString.Join.SignInAfterJoinError)
@@ -238,7 +238,7 @@ public class JoinViewController: BaseElloViewController, HasAppController {
         parentAppController?.swapViewController(signInController)
     }
 
-    private func showSignInScreen() {
+    private func showLoginScreen() {
         let signInController = SignInViewController()
         parentAppController?.swapViewController(signInController)
     }
@@ -309,7 +309,7 @@ extension JoinViewController {
 
     @IBAction func loginTapped(sender: ElloTextButton) {
         Tracker.sharedTracker.tappedSignInFromJoin()
-        showSignInScreen()
+        showLoginScreen()
     }
 
 }

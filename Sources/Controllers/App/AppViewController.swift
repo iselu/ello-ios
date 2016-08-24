@@ -162,7 +162,9 @@ extension AppViewController {
 
     private func showStartupScreen(animated: Bool = true) {
         Tracker.sharedTracker.screenAppeared("Startup")
-        swapViewController(StartupViewController())
+        let startupController = StartupViewController()
+        startupController.parentAppController = self
+        swapViewController(startupController)
     }
 
     public func showJoinScreen() {
@@ -173,7 +175,7 @@ extension AppViewController {
         Crashlytics.sharedInstance().setObjectValue("Join", forKey: CrashlyticsKey.StreamName.rawValue)
     }
 
-    public func showSignInScreen() {
+    public func showLoginScreen() {
         pushPayload = .None
         let signInController = SignInViewController()
         signInController.parentAppController = self
@@ -438,7 +440,7 @@ extension AppViewController {
             }
         case .Login:
             if !isLoggedIn() {
-                showSignInScreen()
+                showLoginScreen()
             }
         case .Noise,
              .Starred:
@@ -493,7 +495,7 @@ extension AppViewController {
 
         let yes = AlertAction(title: InterfaceString.App.LoginAndView, style: .Dark) { _ in
             self.deepLinkPath = path
-            self.showSignInScreen()
+            self.showLoginScreen()
         }
         alertController.addAction(yes)
 
@@ -655,7 +657,7 @@ public extension AppViewController {
 
     @IBAction func signInTapped(sender: ElloButton) {
         Tracker.sharedTracker.tappedSignInFromStartup()
-        showSignInScreen()
+        showLoginScreen()
     }
 
     @IBAction func joinTapped(sender: ElloButton) {

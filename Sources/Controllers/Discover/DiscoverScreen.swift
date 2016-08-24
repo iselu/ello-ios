@@ -2,5 +2,5 @@
 ///  DiscoverScreen.swift
 //
 
-public class DiscoverScreen: ElloScreen {
+public class DiscoverScreen: StreamableScreen {
 }

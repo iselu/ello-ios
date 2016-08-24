@@ -4,6 +4,7 @@
 
 import UIKit
 
+// black button, gray text, and sets the correct font
 public class ElloButton: UIButton {
 
     override public var enabled: Bool {
@@ -56,6 +57,7 @@ public class ElloButton: UIButton {
 
 }
 
+// light gray background, dark gray text
 public class LightElloButton: ElloButton {
 
     override func updateStyle() {
@@ -72,6 +74,7 @@ public class LightElloButton: ElloButton {
 
 }
 
+// white button, black text
 public class WhiteElloButton: ElloButton {
 
     required public init(frame: CGRect) {
@@ -104,6 +107,7 @@ public class WhiteElloButton: ElloButton {
     }
 }
 
+// white button, black text, black outline w/ square corners
 public class OutlineElloButton: WhiteElloButton {
 
     override func sharedSetup() {
@@ -124,11 +128,17 @@ public class OutlineElloButton: WhiteElloButton {
     }
 }
 
-
+// clear button, black text.  corners are either "fully" rounded (to match the
+// height) or they can be set to any radius
 public class RoundedElloButton: ElloButton {
     var borderColor: UIColor = .blackColor() {
         didSet {
             updateOutline()
+        }
+    }
+    var cornerRadius: CGFloat? {
+        didSet {
+            setNeedsLayout()
         }
     }
 
@@ -153,10 +163,17 @@ public class RoundedElloButton: ElloButton {
 
     override public func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = min(frame.height, frame.width) / 2
+
+        if let cornerRadius = cornerRadius {
+            layer.cornerRadius = cornerRadius
+        }
+        else {
+            layer.cornerRadius = min(frame.height, frame.width) / 2
+        }
     }
 }
 
+// green background, white text.
 public class GreenElloButton: ElloButton {
 
     override func updateStyle() {
