@@ -24,7 +24,11 @@ class ProfileHeaderCellSpec: QuickSpec {
                     cell.setAvatar(UIImage.imageWithColor(.blueColor(), size: CGSize(width: 200, height: 200)))
                     expectValidSnapshot(cell, device: .Phone6_Portrait)
                 }
-                it("has valid snapshot with user info, no avatar") {
+            }
+
+            context("user loaded") {
+                beforeEach {
+                    cell = ProfileHeaderCell.loadFromNib() as ProfileHeaderCell
                     let user = User.stub([
                         "username": "666",
                         "name": "Archer Sterling",
@@ -35,6 +39,8 @@ class ProfileHeaderCellSpec: QuickSpec {
                         ])
                     let item: StreamCellItem = StreamCellItem(jsonable: user, type: .ProfileHeader)
                     ProfileHeaderCellPresenter.configure(cell, streamCellItem: item, streamKind: .CurrentUserStream, indexPath: NSIndexPath(forItem: 0, inSection: 0), currentUser: nil)
+                }
+                it("has valid snapshot with user info, no avatar") {
                     expectValidSnapshot(cell, device: .Phone6_Portrait)
                 }
             }
