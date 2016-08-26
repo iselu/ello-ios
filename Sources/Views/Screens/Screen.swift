@@ -60,9 +60,9 @@ public class Screen: UIView {
         keyboardWillHideObserver = nil
     }
 
-    private func keyboardWillChange(keyboard: Keyboard) {
+    func keyboardWillChange(keyboard: Keyboard) {
         let bottomInset = keyboard.keyboardBottomInset(inView: self)
-        animate(duration: Keyboard.shared.duration, options: Keyboard.shared.options, completion: { _ in self.keyboardDidAnimate() }) {
+        animate(duration: keyboard.duration, options: keyboard.options, completion: { _ in self.keyboardDidAnimate() }) {
             self.keyboardConstraint.updateOffset(-bottomInset)
             self.layoutIfNeeded()
             self.keyboardIsAnimating()

@@ -558,6 +558,7 @@
 		1D7152C51D6F81D2005998FE /* CredentialsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7152C31D6F8189005998FE /* CredentialsScreen.swift */; };
 		1D7152CA1D6FA0D4005998FE /* JoinScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7152C71D6FA054005998FE /* JoinScreen.swift */; };
 		1D7152CB1D6FA0D9005998FE /* JoinProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7152C61D6FA054005998FE /* JoinProtocols.swift */; };
+		1D7152CD1D70E77D005998FE /* JoinScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7152CC1D70E77D005998FE /* JoinScreenSpec.swift */; };
 		1D73AB871C569EAE00D708B9 /* SafariActivitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D73AB861C569EAE00D708B9 /* SafariActivitySpec.swift */; };
 		1D73AB8A1C56A01E00D708B9 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D73AB881C569EB600D708B9 /* SafariActivity.swift */; };
 		1D73AB901C57C85600D708B9 /* AuthStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D73AB8F1C57C85600D708B9 /* AuthStateSpec.swift */; };
@@ -1427,6 +1428,7 @@
 		1D7152C31D6F8189005998FE /* CredentialsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialsScreen.swift; sourceTree = "<group>"; };
 		1D7152C61D6FA054005998FE /* JoinProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinProtocols.swift; sourceTree = "<group>"; };
 		1D7152C71D6FA054005998FE /* JoinScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinScreen.swift; sourceTree = "<group>"; };
+		1D7152CC1D70E77D005998FE /* JoinScreenSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinScreenSpec.swift; sourceTree = "<group>"; };
 		1D73AB861C569EAE00D708B9 /* SafariActivitySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivitySpec.swift; sourceTree = "<group>"; };
 		1D73AB881C569EB600D708B9 /* SafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		1D73AB8F1C57C85600D708B9 /* AuthStateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthStateSpec.swift; sourceTree = "<group>"; };
@@ -1933,6 +1935,7 @@
 		121D92571A5CACC7004F0455 /* Join */ = {
 			isa = PBXGroup;
 			children = (
+				1D7152CC1D70E77D005998FE /* JoinScreenSpec.swift */,
 				121D92581A5CACEA004F0455 /* JoinViewControllerSpec.swift */,
 			);
 			path = Join;
@@ -4262,6 +4265,7 @@
 				1264FEFA1B0E4C3D0011B646 /* StreamImageCellPresenterSpec.swift in Sources */,
 				EA9299301AEAC70200E22976 /* DeleteAccountConfirmationViewControllerSpec.swift in Sources */,
 				1D2D18681AC322170078AA05 /* UIWebViewSpecs.swift in Sources */,
+				1D7152CD1D70E77D005998FE /* JoinScreenSpec.swift in Sources */,
 				1D9D170F1AE72372009841A4 /* UIViewControllerExtensionSpec.swift in Sources */,
 				76B2ADDD1A7C43F700D5CAD7 /* StreamViewControllerSpec.swift in Sources */,
 				1D26E1681C52E26D0034448D /* NotificationCellSpec.swift in Sources */,

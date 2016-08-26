@@ -19,7 +19,7 @@ protocol JoinScreenProtocol: class {
     func enableInputs()
     func disableInputs()
 
-    func showMessageText(text: String)
+    func showMessage(text: String)
     func showUsernameSuggestions(usernames: [String])
     func hideMessage()
     func showUsernameError(text: String)

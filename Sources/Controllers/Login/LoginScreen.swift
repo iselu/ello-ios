@@ -11,6 +11,7 @@ public class LoginScreen: CredentialsScreen {
         static let fieldsInnerMargin: CGFloat = 30
         static let buttonHeight: CGFloat = 50
         static let buttonInset: CGFloat = 10
+        static let forgotPasswordFontSize: CGFloat = 11
     }
 
     weak var delegate: LoginDelegate?
@@ -30,17 +31,20 @@ public class LoginScreen: CredentialsScreen {
     let passwordField = ClearTextField()
     let errorLabel = ElloSizeableLabel()
 
+    let forgotPasswordButton = UIButton()
     let continueButton = RoundedGrayElloButton()
     let continueBackground = UIView()
 
     override func setText() {
         titleLabel.text = InterfaceString.Startup.Login
         continueButton.setTitle(InterfaceString.Login.Continue, forState: .Normal)
+        forgotPasswordButton.setTitle(InterfaceString.Login.ForgotPassword, forState: .Normal)
     }
 
     override func bindActions() {
         super.bindActions()
         continueButton.addTarget(self, action: #selector(submitAction), forControlEvents: .TouchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordAction), forControlEvents: .TouchUpInside)
         passwordField.onePasswordButton.addTarget(self, action: #selector(onePasswordAction(_:)), forControlEvents: .TouchUpInside)
     }
 
@@ -59,6 +63,9 @@ public class LoginScreen: CredentialsScreen {
         continueBackground.backgroundColor = .whiteColor()
         errorLabel.font = UIFont.defaultFont(12)
         errorLabel.textColor = .whiteColor()
+
+        forgotPasswordButton.titleLabel?.font = UIFont.defaultFont(Size.forgotPasswordFontSize)
+        forgotPasswordButton.setTitleColor(.greyA(), forState: .Normal)
     }
 
     override func arrange() {
@@ -66,6 +73,7 @@ public class LoginScreen: CredentialsScreen {
 
         scrollView.addSubview(usernameField)
         scrollView.addSubview(passwordField)
+        scrollView.addSubview(forgotPasswordButton)
         scrollView.addSubview(errorLabel)
 
         addSubview(continueBackground)
@@ -94,6 +102,11 @@ public class LoginScreen: CredentialsScreen {
             make.leading.trailing.equalTo(scrollView).inset(CredentialsScreen.Size.inset)
         }
 
+        forgotPasswordButton.snp_makeConstraints { make in
+            make.top.equalTo(passwordField.snp_bottom).offset(Size.fieldsInnerMargin)
+            make.trailing.equalTo(scrollView).inset(Size.buttonInset)
+        }
+
         continueButton.snp_makeConstraints { make in
             make.leading.trailing.equalTo(self).inset(Size.buttonInset)
             make.bottom.equalTo(keyboardAnchor.snp_top).offset(-Size.buttonInset)
@@ -104,7 +117,6 @@ public class LoginScreen: CredentialsScreen {
             make.leading.trailing.bottom.equalTo(self)
             make.top.equalTo(continueButton).offset(-Size.buttonInset)
         }
-
 
         errorLabel.snp_makeConstraints { make in
             make.top.equalTo(passwordField.snp_bottom).offset(Size.fieldsInnerMargin)
@@ -120,10 +132,14 @@ public class LoginScreen: CredentialsScreen {
     }
 }
 
-extension LoginScreen: UITextFieldDelegate {
-
+// MARK: Actions
+extension LoginScreen {
     override public func backAction() {
         delegate?.backAction()
+    }
+
+    public func forgotPasswordAction() {
+        delegate?.forgotPasswordAction()
     }
 
     public func submitAction() {
@@ -133,7 +149,10 @@ extension LoginScreen: UITextFieldDelegate {
     public func onePasswordAction(sender: UIView) {
         delegate?.onePasswordAction(sender)
     }
+}
 
+// MARK: UITextFieldDelegate
+extension LoginScreen: UITextFieldDelegate {
     public func textFieldDidEndEditing(textField: UITextField) {
         textField.setNeedsLayout()
         textField.layoutIfNeeded()
@@ -155,6 +174,7 @@ extension LoginScreen: UITextFieldDelegate {
     }
 }
 
+// MARK: LoginScreenProtocol
 extension LoginScreen: LoginScreenProtocol {
     func enableInputs() {
         usernameField.enabled = true

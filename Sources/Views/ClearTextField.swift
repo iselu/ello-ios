@@ -6,7 +6,10 @@ public class ClearTextField: UITextField {
     public let onePasswordButton = UIButton()
     var line = UIView()
     var hasOnePassword = false {
-        didSet { onePasswordButton.hidden = !hasOnePassword }
+        didSet {
+            onePasswordButton.hidden = !hasOnePassword
+            setNeedsLayout()
+        }
     }
     var validationState = ValidationState.None {
         didSet {
@@ -86,6 +89,9 @@ public class ClearTextField: UITextField {
     override public func rightViewRectForBounds(bounds: CGRect) -> CGRect {
         var rect = super.rightViewRectForBounds(bounds)
         rect.origin.x -= 10
+        if hasOnePassword {
+            rect.origin.x -= 44
+        }
         return rect
     }
 

@@ -26,7 +26,6 @@ class StreamNotificationCellSizeCalculatorSpec : QuickSpec {
         describe("StreamNotificationCellSizeCalculator") {
             let user: User = stub([:])
             let text: TextRegion = stub(["content": "Lorem ipsum dolor sit amet."])
-            let listItemText: TextRegion = stub(["content": "<ul><li>Lorem ipsum dolor sit amet.</li></ul>"])
             let image: ImageRegion = stub(["asset": Asset.stub(["attachment": Attachment.stub(["width": 2000, "height": 2000])])])
             let postWithText: Post = stub(["summary": [text], "content": [text], "author": user])
             let postWithImage: Post = stub(["summary": [image], "content": [image], "author": user])

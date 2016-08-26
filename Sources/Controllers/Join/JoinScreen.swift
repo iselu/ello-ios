@@ -219,7 +219,7 @@ public class JoinScreen: CredentialsScreen {
 }
 
 extension JoinScreen {
-    func styleDiscoverButton(allValid allValid: Bool) {
+    private func styleDiscoverButton(allValid allValid: Bool) {
         if allValid {
             discoverButton.layer.borderWidth = 0
             discoverButton.backgroundColor = .greenD1()
@@ -345,7 +345,7 @@ extension JoinScreen: JoinScreenProtocol {
         showMessageAttributed(msg)
     }
 
-    func showMessageText(text: String) {
+    func showMessage(text: String) {
         let plainAttrs = [
             NSFontAttributeName: UIFont.defaultFont(12),
         ]

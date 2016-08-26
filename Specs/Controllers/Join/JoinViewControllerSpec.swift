@@ -9,99 +9,238 @@ import Nimble
 
 
 class JoinViewControllerSpec: QuickSpec {
-    override func spec() {
+    class MockScreen: JoinScreenProtocol {
+        var email: String = ""
+        var username: String = ""
+        var password: String = ""
+        var onePasswordAvailable: Bool = false
 
+        var inputsEnabled = true
+        var message: String?
+        var emailError: String?
+        var usernameError: String?
+        var passwordError: String?
+        var error: String?
+        var usernames: [String]?
+        var emailValid: Bool?
+        var usernameValid: Bool?
+        var passwordValid: Bool?
+        var resignedFirstResponder = false
+
+        func enableInputs() {
+            inputsEnabled = true
+        }
+        func disableInputs() {
+            inputsEnabled = false
+        }
+
+        func showMessage(text: String) {
+            message = text
+        }
+        func hideMessage() {
+            message = ""
+        }
+
+        func showUsernameSuggestions(usernames: [String]) {
+            self.usernames = usernames
+        }
+        func showUsernameError(text: String) {
+            usernameError = text
+        }
+        func hideUsernameError() {
+            usernameError = ""
+        }
+
+        func showEmailError(text: String) {
+            emailError = text
+        }
+        func hideEmailError() {
+            emailError = ""
+        }
+
+        func showPasswordError(text: String) {
+            passwordError = text
+        }
+        func hidePasswordError() {
+            passwordError = ""
+        }
+
+        func showError(text: String) {
+            error = text
+        }
+
+        func resignFirstResponder() -> Bool {
+            resignedFirstResponder = true
+            return true
+        }
+
+        func applyValidation(emailValid emailValid: Bool, usernameValid: Bool, passwordValid: Bool) {
+            self.emailValid = emailValid
+            self.usernameValid = usernameValid
+            self.passwordValid = passwordValid
+        }
+    }
+
+    override func spec() {
         describe("JoinViewController") {
             var subject: JoinViewController!
+            var mockScreen: MockScreen!
 
             beforeEach {
                 subject = JoinViewController()
+                mockScreen = MockScreen()
+                subject.mockScreen = mockScreen
                 showController(subject)
             }
 
-            describe("initialization") {
-
-                it("can be instantiated from storyboard") {
-                    expect(subject).notTo(beNil())
+            describe("validating inputs") {
+                context("missing inputs") {
+                    beforeEach {
+                        subject.validate(email: "", username: "", password: "")
+                    }
+                    it("should report error to screen") {
+                        expect(mockScreen.emailValid) == false
+                        expect(mockScreen.usernameValid) == false
+                        expect(mockScreen.passwordValid) == false
+                    }
+                }
+                context("invalid inputs") {
+                    beforeEach {
+                        subject.validate(email: "invalid", username: "a", password: "short")
+                    }
+                    it("should report error to screen") {
+                        expect(mockScreen.emailValid) == false
+                        expect(mockScreen.usernameValid) == false
+                        expect(mockScreen.passwordValid) == false
+                    }
                 }
 
-                it("is a BaseElloViewController") {
-                    expect(subject).to(beAKindOf(BaseElloViewController.self))
+                context("missing email") {
+                    beforeEach {
+                        subject.validate(email: "", username: "valid", password: "password")
+                    }
+                    it("should report error to screen") {
+                        expect(mockScreen.emailValid) == false
+                        expect(mockScreen.usernameValid) == true
+                        expect(mockScreen.passwordValid) == true
+                    }
+                }
+                context("invalid email") {
+                    beforeEach {
+                        subject.validate(email: "invalid", username: "valid", password: "password")
+                    }
+                    it("should report error to screen") {
+                        expect(mockScreen.emailValid) == false
+                        expect(mockScreen.usernameValid) == true
+                        expect(mockScreen.passwordValid) == true
+                    }
                 }
 
-                it("is a JoinViewController") {
-                    expect(subject).to(beAKindOf(JoinViewController.self))
+                context("missing username") {
+                    beforeEach {
+                        subject.validate(email: "valid@email.com", username: "", password: "password")
+                    }
+                    it("should report error to screen") {
+                        expect(mockScreen.emailValid) == true
+                        expect(mockScreen.usernameValid) == false
+                        expect(mockScreen.passwordValid) == true
+                    }
                 }
-            }
-
-            describe("storyboard") {
-
-                it("IBOutlets are  not nil") {
-                    expect(subject.scrollView).notTo(beNil())
-                    expect(subject.emailField).notTo(beNil())
-                    expect(subject.usernameField).notTo(beNil())
-                    expect(subject.passwordField).notTo(beNil())
-                    expect(subject.onePasswordButton).notTo(beNil())
-                    expect(subject.loginButton).notTo(beNil())
-                    expect(subject.joinButton).notTo(beNil())
-                    expect(subject.termsButton).notTo(beNil())
+                context("invalid username") {
+                    beforeEach {
+                        subject.validate(email: "valid@email.com", username: "a", password: "password")
+                    }
+                    it("should report error to screen") {
+                        expect(mockScreen.emailValid) == true
+                        expect(mockScreen.usernameValid) == false
+                        expect(mockScreen.passwordValid) == true
+                    }
                 }
 
-                it("IBActions are wired up") {
-                    let onePasswordActions = subject.onePasswordButton.actionsForTarget(subject, forControlEvent: UIControlEvents.TouchUpInside)
-                    expect(onePasswordActions).to(contain("findLoginFrom1Password:"))
-                    expect(onePasswordActions?.count) == 1
-
-                    let loginActions = subject.loginButton.actionsForTarget(subject, forControlEvent: UIControlEvents.TouchUpInside)
-                    expect(loginActions).to(contain("loginTapped:"))
-                    expect(loginActions?.count) == 1
-
-                    let joinActions = subject.joinButton.actionsForTarget(subject, forControlEvent: UIControlEvents.TouchUpInside)
-                    expect(joinActions).to(contain("joinTapped:"))
-                    expect(joinActions?.count) == 1
+                context("missing password") {
+                    beforeEach {
+                        subject.validate(email: "valid@email.com", username: "valid", password: "")
+                    }
+                    it("should report error to screen") {
+                        expect(mockScreen.emailValid) == true
+                        expect(mockScreen.usernameValid) == true
+                        expect(mockScreen.passwordValid) == false
+                    }
+                }
+                context("invalid password") {
+                    beforeEach {
+                        subject.validate(email: "valid@email.com", username: "valid", password: "short")
+                    }
+                    it("should report error to screen") {
+                        expect(mockScreen.emailValid) == true
+                        expect(mockScreen.usernameValid) == true
+                        expect(mockScreen.passwordValid) == false
+                    }
                 }
             }
 
             describe("submitting successful credentials") {
-                it("stores the email and password") {
-                    let email = "email@email.com"
-                    let username = "username"
-                    let password = "password"
-                    subject.emailField.text = email
-                    subject.usernameField.text = username
-                    subject.passwordField.text = password
-                    subject.join()
+                let email = "email@email.com"
+                let username = "username"
+                let password = "password"
+                beforeEach {
+                    var token = AuthToken()
+                    token.username = ""
+                    token.password = ""
+                    mockScreen.email = email
+                    mockScreen.username = username
+                    mockScreen.password = password
+                    subject.submit(email: email, username: username, password: password)
+                }
 
+                it("stores the email and password") {
                     let token = AuthToken()
                     expect(token.username) == email
                     expect(token.password) == password
                 }
             }
 
-            describe("validation") {
-
-                beforeEach {
-                    subject = JoinViewController()
-                    showController(subject)
-                }
-
-                describe("initial state") {
-                    it("starts with joinButton enabled") {
-                        expect(subject.joinButton.enabled) == true
+            describe("submitting") {
+                context("input is valid email") {
+                    let email = "email@email.com"
+                    let username = "username"
+                    let password = "password"
+                    beforeEach {
+                        mockScreen.email = email
+                        mockScreen.username = username
+                        mockScreen.password = password
+                        subject.submit(email: email, username: username, password: password)
                     }
-                    it("starts with empty messages") {
-                        expect(subject.emailField.text ?? "") == ""
-                        expect(subject.usernameField.text ?? "") == ""
-                        expect(subject.passwordField.text ?? "") == ""
+                    it("should disable inputs") {
+                        expect(mockScreen.inputsEnabled) == false
                     }
-                    it("has all the views located sensibly") {
-                        // expect(subject.emailView).toBeBelow(130)
-                        expect(subject.emailField.frame.minY) > 130
-                        expect(subject.usernameField.frame.height) == subject.emailField.frame.height
-                        expect(subject.passwordField.frame.height) == subject.emailField.frame.height
+                    it("should hide errors") {
+                        expect(mockScreen.message) == ""
+                        expect(mockScreen.emailError) == ""
+                        expect(mockScreen.usernameError) == ""
+                        expect(mockScreen.passwordError) == ""
                     }
                 }
 
+                context("input is invalid") {
+                    let email = "not-email"
+                    let username = "a"
+                    let password = "short"
+                    beforeEach {
+                        mockScreen.email = email
+                        mockScreen.username = username
+                        mockScreen.password = password
+                        subject.submit(email: email, username: username, password: password)
+                    }
+                    it("should enable inputs") {
+                        expect(mockScreen.inputsEnabled) == true
+                    }
+                    it("should show errors") {
+                        expect(mockScreen.emailError).notTo(beNil())
+                        expect(mockScreen.usernameError).notTo(beNil())
+                        expect(mockScreen.passwordError).notTo(beNil())
+                    }
+                }
             }
         }
     }

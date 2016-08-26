@@ -26,9 +26,10 @@ public struct AnimationOptions {
 
 public let DefaultAnimationDuration: NSTimeInterval = 0.2
 public let DefaultAppleAnimationDuration: NSTimeInterval = 0.3
-public func animate(duration duration: NSTimeInterval = DefaultAnimationDuration, delay: NSTimeInterval = 0, options: UIViewAnimationOptions = .TransitionNone, animated: Bool = true, completion: ((Bool) -> Void)? = nil, animations: () -> Void) {
+public func animate(duration duration: NSTimeInterval = DefaultAnimationDuration, delay: NSTimeInterval = 0, options: UIViewAnimationOptions = .TransitionNone, animated: Bool? = nil, completion: ((Bool) -> Void)? = nil, animations: () -> Void) {
+    let shouldAnimate: Bool = animated ?? !AppSetup.sharedState.isTesting
     let options = AnimationOptions(duration: duration, delay: delay, options: options, completion: completion)
-    animate(options, animated: animated, animations: animations)
+    animate(options, animated: shouldAnimate, animations: animations)
 }
 
 public func animate(options: AnimationOptions, animated: Bool = true, animations: () -> Void) {
@@ -37,6 +38,7 @@ public func animate(options: AnimationOptions, animated: Bool = true, animations
     }
     else {
         animations()
+        options.completion?(true)
     }
 }
 

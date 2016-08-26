@@ -26,15 +26,14 @@ public class LoginViewController: BaseElloViewController, HasAppController {
         }
     }
 
-    func showErrorFromJoin(errorText: String, username: String, password: String) {
-        screen.showError(errorText)
-        screen.username = username
-        screen.password = password
+}
+
+extension LoginViewController: LoginDelegate {
+    func backAction() {
+        navigationController?.popViewControllerAnimated(true)
     }
 
-// MARK: - IBActions
-
-    @IBAction func forgotPasswordTapped(sender: ElloTextButton) {
+    func forgotPasswordAction() {
         Tracker.sharedTracker.tappedForgotPassword()
 
         let browser = ElloWebBrowserViewController()
@@ -50,12 +49,6 @@ public class LoginViewController: BaseElloViewController, HasAppController {
         browser.toolbarHidden = true
 
         presentViewController(nav, animated: true, completion: nil)
-    }
-}
-
-extension LoginViewController: LoginDelegate {
-    func backAction() {
-        navigationController?.popViewControllerAnimated(true)
     }
 
     func onePasswordAction(sender: UIView) {
@@ -100,7 +93,8 @@ extension LoginViewController: LoginDelegate {
                     self.screen.enableInputs()
                     let errorTitle = error.elloErrorMessage ?? InterfaceString.UnknownError
                     self.screen.showError(errorTitle)
-            })
+                }
+            )
         }
         else {
             Tracker.sharedTracker.loginInvalid()

@@ -129,20 +129,27 @@ extension JoinViewController: JoinDelegate {
     }
 
     func onePasswordAction(sender: UIView) {
-        OnePasswordExtension.sharedExtension().findLoginForURLString(
+        OnePasswordExtension.sharedExtension().storeLoginForURLString(
             ElloURI.baseURL,
+            loginDetails: [
+                AppExtensionTitleKey: InterfaceString.Ello,
+            ], passwordGenerationOptions: [
+                AppExtensionGeneratedPasswordMinLengthKey: 8,
+            ],
             forViewController: self,
             sender: sender) { loginDict, error in
                 guard let loginDict = loginDict else { return }
 
-                if let email = loginDict[AppExtensionUsernameKey] as? String {
-                    self.screen.email = email
+                if let username = loginDict[AppExtensionUsernameKey] as? String {
+                    self.screen.username = username
                 }
 
                 if let password = loginDict[AppExtensionPasswordKey] as? String {
                     self.screen.password = password
                 }
-        }
+
+                self.validate(email: self.screen.email, username: self.screen.username, password: self.screen.password)
+            }
     }
 }
 

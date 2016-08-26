@@ -4,6 +4,7 @@
 
 protocol LoginDelegate: class {
     func backAction()
+    func forgotPasswordAction()
     func onePasswordAction(sender: UIView)
     func submit(username username: String, password: String)
 }

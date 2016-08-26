@@ -338,6 +338,7 @@ public struct InterfaceString {
     static let GenericError = NSLocalizedString("Something went wrong. Thank you for your patience with Ello Beta!", comment: "Generic error message")
     static let UnknownError = NSLocalizedString("Unknown error", comment: "Unknown error message")
 
+    static let Ello = NSLocalizedString("Ello", comment: "Ello")
     static let OK = NSLocalizedString("OK", comment: "OK")
     static let Yes = NSLocalizedString("Yes", comment: "Yes")
     static let No = NSLocalizedString("No", comment: "No")
