@@ -61,25 +61,12 @@ class HireViewControllerSpec: QuickSpec {
                 it("should show the success screen") {
                     expect(mockScreen.successVisible) == true
                 }
-                it("should not hide the success screen until after 3.3 seconds") {
-                    waitUntil(timeout: 4) { done in
-                        delay(3.15) { done() }
-                    }
-                    expect(mockScreen.successVisible) == true
-                    expect(mockScreen.successCalled) == true
-                }
                 it("should hide the success screen after 3.3 seconds") {
-                    waitUntil(timeout: 4) { done in
-                        delay(3.4) { done() }
-                    }
-                    expect(mockScreen.successVisible) == false
-                    expect(mockScreen.successCalled) == true
+                    expect(mockScreen.successVisible).toEventually(beFalse(), timeout: 4)
+                    expect(mockScreen.successCalled).toEventually(beTrue(), timeout: 4)
                 }
                 it("should pop the controller") {
-                    waitUntil(timeout: 4) { done in
-                        delay(3.1) { done() }
-                    }
-                    expect(navigationController.popped) == true
+                    expect(navigationController.popped).toEventually(beTrue(), timeout: 4)
                 }
             }
             describe("submit(body:\"test\") failure") {
