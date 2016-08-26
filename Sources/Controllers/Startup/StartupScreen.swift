@@ -19,24 +19,7 @@ public class StartupScreen: EmptyScreen {
 
     let logoImage = FLAnimatedImageView()
     let signUpButton = GreenElloButton()
-    let loginButton = RoundedElloButton()
-    // let gradientLayer = StartupGradientLayer()
-
-    override func style() {
-        loginButton.borderColor = .greyA()
-        loginButton.cornerRadius = 5
-        loginButton.setTitleColor(.greyA(), forState: .Normal)
-        loginButton.setTitleColor(.blackColor(), forState: .Highlighted)
-
-        // layer.addSublayer(gradientLayer)
-    }
-
-    override public func layoutSubviews() {
-        super.layoutSubviews()
-        // let size = max(layer.frame.size.width, layer.frame.size.height)
-        // gradientLayer.frame.size = CGSize(width: size, height: size)
-        // gradientLayer.position = layer.frame.center
-    }
+    let loginButton = RoundedGrayElloButton()
 
     override func setText() {
         if let resource = NSBundle.mainBundle().pathForResource("ello-crazy-logo", ofType: "gif") {

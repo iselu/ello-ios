@@ -211,8 +211,8 @@ extension BlockUserModalScreen {
         }
 
         modalView.snp_makeConstraints { make in
-            make.left.equalTo(self).offset(10)
-            make.right.equalTo(self).offset(-10)
+            make.leading.equalTo(self).offset(10)
+            make.trailing.equalTo(self).offset(-10)
             make.top.equalTo(self).offset(50)
             make.bottom.equalTo(innerWidthView)
             self.scrollHeight = make.height.equalTo(scrollHeightConstant).priorityMedium().constraint
@@ -222,60 +222,60 @@ extension BlockUserModalScreen {
         innerWidthView.snp_makeConstraints { make in
             make.top.equalTo(modalView).offset(20).priorityHigh()
             make.bottom.equalTo(flagLabel).offset(20).priorityHigh()
-            make.left.equalTo(modalView).offset(20).priorityHigh()
-            make.right.equalTo(modalView).offset(-20).priorityHigh()
+            make.leading.equalTo(modalView).offset(20).priorityHigh()
+            make.trailing.equalTo(modalView).offset(-20).priorityHigh()
             self.scrollWidth = make.width.equalTo(scrollWidthConstant).priorityHigh().constraint
         }
 
         closeButton.snp_makeConstraints { make in
             make.size.equalTo(CGSize(width: 30, height: 30))
             make.top.equalTo(modalView).offset(10)
-            make.right.equalTo(modalView).offset(-10)
+            make.trailing.equalTo(modalView).offset(-10)
         }
 
         titleLabel.snp_makeConstraints { make in
             make.top.equalTo(innerWidthView)
-            make.left.equalTo(innerWidthView)
-            make.right.equalTo(closeButton.snp_left).offset(-10)
+            make.leading.equalTo(innerWidthView)
+            make.trailing.equalTo(closeButton.snp_leading).offset(-10)
         }
 
         muteButton.snp_makeConstraints { make in
             make.top.equalTo(titleLabel.snp_bottom).offset(40)
-            make.left.equalTo(innerWidthView)
-            make.right.equalTo(innerWidthView)
+            make.leading.equalTo(innerWidthView)
+            make.trailing.equalTo(innerWidthView)
             make.height.equalTo(50)
         }
 
         muteLabel.snp_makeConstraints { make in
             make.top.equalTo(muteButton.snp_bottom).offset(20)
-            make.left.equalTo(innerWidthView)
-            make.right.equalTo(innerWidthView)
+            make.leading.equalTo(innerWidthView)
+            make.trailing.equalTo(innerWidthView)
         }
 
         blockButton.snp_makeConstraints { make in
             make.top.equalTo(muteLabel.snp_bottom).offset(40)
-            make.left.equalTo(innerWidthView)
-            make.right.equalTo(innerWidthView)
+            make.leading.equalTo(innerWidthView)
+            make.trailing.equalTo(innerWidthView)
             make.height.equalTo(50)
         }
 
         blockLabel.snp_makeConstraints { make in
             make.top.equalTo(blockButton.snp_bottom).offset(20)
-            make.left.equalTo(innerWidthView)
-            make.right.equalTo(innerWidthView)
+            make.leading.equalTo(innerWidthView)
+            make.trailing.equalTo(innerWidthView)
         }
 
         flagButton.snp_makeConstraints { make in
             make.top.equalTo(blockLabel.snp_bottom).offset(40)
-            make.left.equalTo(innerWidthView)
-            make.right.equalTo(innerWidthView)
+            make.leading.equalTo(innerWidthView)
+            make.trailing.equalTo(innerWidthView)
             make.height.equalTo(50)
         }
 
         flagLabel.snp_makeConstraints { make in
             make.top.equalTo(flagButton.snp_bottom).offset(20)
-            make.left.equalTo(innerWidthView)
-            make.right.equalTo(innerWidthView)
+            make.leading.equalTo(innerWidthView)
+            make.trailing.equalTo(innerWidthView)
         }
     }
 

@@ -52,14 +52,12 @@ public class CategoryCell: UICollectionViewCell {
         contentView.addSubview(label)
 
         colorFillView.snp_makeConstraints { make in
-            make.top.equalTo(contentView)
-            make.left.equalTo(contentView)
+            make.top.leading.trailing.equalTo(contentView)
             make.bottom.equalTo(contentView).offset(-Size.lineHeight)
-            make.right.equalTo(contentView)
         }
         label.snp_makeConstraints { make in
             make.centerY.equalTo(contentView)
-            make.left.equalTo(contentView).offset(Size.sideMargins)
+            make.leading.equalTo(contentView).offset(Size.sideMargins)
         }
     }
 }

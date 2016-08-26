@@ -17,10 +17,10 @@ public class StartupViewController: UIViewController {
 
 extension StartupViewController: StartupDelegate {
     func signUpAction() {
-        parentAppController?.showJoinScreen()
+        parentAppController?.showJoinScreen(animated: true)
     }
 
     func loginAction() {
-        parentAppController?.showLoginScreen()
+        parentAppController?.showLoginScreen(animated: true)
     }
 }

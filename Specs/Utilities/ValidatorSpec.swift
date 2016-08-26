@@ -27,10 +27,9 @@ class ValidatorSpec: QuickSpec {
 
             for (test, expected) in expectations {
                 it("returns \(expected) for \(test)") {
-                    expect(test.isValidEmail()) == expected
+                    expect(Validator.isValidEmail(test)) == expected
                 }
             }
-
         }
 
         context("username validation") {
@@ -46,10 +45,9 @@ class ValidatorSpec: QuickSpec {
 
             for (test, expected) in expectations {
                 it("returns \(expected) for \(test)") {
-                    expect(test.isValidUsername()) == expected
+                    expect(Validator.isValidUsername(test)) == expected
                 }
             }
-
         }
 
         context("password validation") {
@@ -69,7 +67,7 @@ class ValidatorSpec: QuickSpec {
 
             for (test, expected) in expectations {
                 it("returns \(expected) for \(test)") {
-                    expect(test.isValidPassword()) == expected
+                    expect(Validator.isValidPassword(test)) == expected
                 }
             }
         }

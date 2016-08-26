@@ -2,25 +2,6 @@
 ///  ElloTextField.swift
 //
 
-import UIKit
-import Foundation
-
-enum ValidationState {
-    case Loading
-    case Error
-    case OK
-    case None
-
-    var imageRepresentation: UIImage? {
-        switch self {
-        case .Loading: return InterfaceImage.ValidationLoading.normalImage
-        case .Error: return InterfaceImage.ValidationError.normalImage
-        case .OK: return InterfaceImage.ValidationOK.normalImage
-        case .None: return nil
-        }
-    }
-}
-
 public class ElloTextField: UITextField {
     var hasOnePassword = false
     var validationState = ValidationState.None {

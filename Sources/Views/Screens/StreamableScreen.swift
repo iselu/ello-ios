@@ -19,8 +19,8 @@ public class StreamableScreen: Screen {
         navigationBar.snp_makeConstraints { make in
             let c = make.top.equalTo(self).constraint
             self.navigationBarTopConstraint = c.layoutConstraints.first!
-            make.left.equalTo(self)
-            make.right.equalTo(self)
+            make.leading.equalTo(self)
+            make.trailing.equalTo(self)
         }
         streamContainer.snp_makeConstraints { make in
             make.edges.equalTo(self)

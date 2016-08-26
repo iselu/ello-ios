@@ -78,7 +78,7 @@ public class AppViewController: BaseElloViewController {
             }
         }
         else {
-            self.showStartupScreen()
+            self.showLoginScreen(animated: false)
         }
     }
 
@@ -161,27 +161,47 @@ public class AppViewController: BaseElloViewController {
 // MARK: Screens
 extension AppViewController {
 
-    private func showStartupScreen(animated: Bool = true) {
+    private func showStartupScreen(completion: ElloEmptyCompletion = {}) {
+        guard !((visibleViewController as? UINavigationController)?.visibleViewController is StartupViewController) else { return }
+
         Tracker.sharedTracker.screenAppeared("Startup")
         let startupController = StartupViewController()
         startupController.parentAppController = self
-        swapViewController(startupController)
+        let nav = ElloNavigationController(rootViewController: startupController)
+        nav.navigationBarHidden = true
+        swapViewController(nav, completion: completion)
     }
 
-    public func showJoinScreen() {
+    public func showJoinScreen(animated animated: Bool) {
+        guard let nav = visibleViewController as? UINavigationController else {
+            showStartupScreen() { self.showJoinScreen(animated: animated) }
+            return
+        }
+
+        if !(nav.visibleViewController is StartupViewController) {
+            nav.popToRootViewControllerAnimated(false)
+        }
+        guard let startupController = nav.visibleViewController as? StartupViewController else { return }
+
         pushPayload = .None
         let joinController = JoinViewController()
         joinController.parentAppController = self
-        swapViewController(joinController)
-        Crashlytics.sharedInstance().setObjectValue("Join", forKey: CrashlyticsKey.StreamName.rawValue)
+        nav.setViewControllers([startupController, joinController], animated: animated)
     }
 
-    public func showLoginScreen() {
+    public func showLoginScreen(animated animated: Bool) {
+        showStartupScreen()
+        guard let nav = visibleViewController as? UINavigationController else { return }
+
+        if !(nav.visibleViewController is StartupViewController) {
+            nav.popToRootViewControllerAnimated(false)
+        }
+        guard let startupController = nav.visibleViewController as? StartupViewController else { return }
+
         pushPayload = .None
         let loginController = LoginViewController()
         loginController.parentAppController = self
-        swapViewController(loginController)
-        Crashlytics.sharedInstance().setObjectValue("Login", forKey: CrashlyticsKey.StreamName.rawValue)
+        nav.setViewControllers([startupController, loginController], animated: animated)
     }
 
     public func showOnboardingScreen(user: User) {
@@ -251,7 +271,7 @@ extension AppViewController {
 // MARK: Screen transitions
 extension AppViewController {
 
-    public func swapViewController(newViewController: UIViewController, completion: ElloEmptyCompletion? = nil) {
+    public func swapViewController(newViewController: UIViewController, completion: ElloEmptyCompletion) {
         newViewController.view.alpha = 0
 
         visibleViewController?.willMoveToParentViewController(nil)
@@ -279,7 +299,7 @@ extension AppViewController {
             newViewController.didMoveToParentViewController(self)
 
             self.visibleViewController = newViewController
-            completion?()
+            completion()
         })
     }
 
@@ -297,7 +317,7 @@ extension AppViewController {
             }
 
             UIView.animateWithDuration(0.2, animations: {
-                self.showStartupScreen(false)
+                self.showStartupScreen()
                 visibleViewController.view.alpha = 0
             }, completion: { _ in
                 visibleViewController.view.removeFromSuperview()
@@ -437,11 +457,11 @@ extension AppViewController {
             showFriendsScreen(vc)
         case .Join:
             if !isLoggedIn() {
-                showJoinScreen()
+                showJoinScreen(animated: false)
             }
         case .Login:
             if !isLoggedIn() {
-                showLoginScreen()
+                showLoginScreen(animated: false)
             }
         case .Noise,
              .Starred:
@@ -496,7 +516,7 @@ extension AppViewController {
 
         let yes = AlertAction(title: InterfaceString.App.LoginAndView, style: .Dark) { _ in
             self.deepLinkPath = path
-            self.showLoginScreen()
+            self.showLoginScreen(animated: true)
         }
         alertController.addAction(yes)
 
@@ -650,22 +670,6 @@ extension AppViewController {
     private func selectTab(tab: ElloTab) {
         ElloWebBrowserViewController.elloTabBarController?.selectedTab = tab
     }
-}
-
-
-// MARK: - IBActions
-public extension AppViewController {
-
-    @IBAction func loginTapped(sender: ElloButton) {
-        Tracker.sharedTracker.tappedLoginFromStartup()
-        showLoginScreen()
-    }
-
-    @IBAction func joinTapped(sender: ElloButton) {
-        Tracker.sharedTracker.tappedJoinFromStartup()
-        showJoinScreen()
-    }
-
 }
 
 #if DEBUG

@@ -54,8 +54,8 @@ public class CategoryCardCell: UICollectionViewCell {
         colorFillView.snp_makeConstraints { make in
             make.top.equalTo(contentView)
             make.bottom.equalTo(contentView).offset(-2)
-            make.left.equalTo(contentView)
-            make.right.equalTo(contentView)
+            make.leading.equalTo(contentView)
+            make.trailing.equalTo(contentView)
         }
         imageView.snp_makeConstraints { make in
             make.edges.equalTo(colorFillView)

@@ -81,13 +81,13 @@ public class CredentialSettingsViewController: UITableViewController {
             } else if text == self.currentUser?.profile?.email {
                 self.emailView.setState(.None)
                 self.updateView()
-            } else if text.isValidEmail() {
+            } else if Validator.isValidEmail(text) {
                 AvailabilityService().emailAvailability(text, success: { availability in
                     if text != self.emailView.textField.text { return }
                     let state: ValidationState = availability.isEmailAvailable ? .OK : .Error
 
                     if !availability.isEmailAvailable {
-                        let msg = InterfaceString.Join.EmailInvalid
+                        let msg = InterfaceString.Validator.EmailInvalid
                         self.emailView.setErrorMessage(msg)
                     }
                     self.emailView.setState(state)
@@ -98,7 +98,7 @@ public class CredentialSettingsViewController: UITableViewController {
                 })
             } else {
                 self.emailView.setState(.Error)
-                let msg = InterfaceString.Join.EmailInvalid
+                let msg = InterfaceString.Validator.EmailInvalid
                 self.emailView.setErrorMessage(msg)
                 self.updateView()
             }
@@ -129,7 +129,7 @@ public class CredentialSettingsViewController: UITableViewController {
                         self.usernameView.setErrorMessage(msg)
                         if !availability.usernameSuggestions.isEmpty {
                             let suggestions = availability.usernameSuggestions.joinWithSeparator(", ")
-                            let msg = String(format: InterfaceString.Join.UsernameSuggestionTemplate, suggestions)
+                            let msg = String(format: InterfaceString.Join.UsernameSuggestionPrefix, suggestions)
                             self.usernameView.setMessage(msg)
                         }
                     }
@@ -148,11 +148,11 @@ public class CredentialSettingsViewController: UITableViewController {
 
         if text.isEmpty {
             self.passwordView.setState(.None)
-        } else if text.isValidPassword() {
+        } else if Validator.isValidPassword(text) {
             self.passwordView.setState(.OK)
         } else {
             self.passwordView.setState(.Error)
-            let msg = InterfaceString.Join.PasswordInvalid
+            let msg = InterfaceString.Validator.PasswordInvalid
             self.passwordView.setErrorMessage(msg)
         }
 
@@ -185,7 +185,7 @@ public class CredentialSettingsViewController: UITableViewController {
     }
 
     public func currentPasswordChanged() {
-        saveButton.enabled = currentPassword.isValidPassword()
+        saveButton.enabled = Validator.isValidPassword(currentPassword)
     }
 
     @IBAction func saveButtonTapped() {

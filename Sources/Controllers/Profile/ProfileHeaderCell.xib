@@ -60,6 +60,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="332" id="LxD-oH-hiP"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LxD-oH-hiP"/>
+                                    </mask>
+                                </variation>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="34" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zV5-bQ-18e" customClass="TwoLineButton" customModule="Ello" customModuleProvider="target">
                                 <rect key="frame" x="15" y="94" width="50" height="34"/>

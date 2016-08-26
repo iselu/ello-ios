@@ -5,6 +5,8 @@
 import CoreGraphics
 
 public extension CGSize {
+    static let minButton = CGSize(width: 40, height: 40)
+
     public func scaledSize(maxSize: CGSize) -> CGSize {
         var newSize = self
         if newSize.width > maxSize.width {

@@ -3,6 +3,9 @@
 //
 
 public class StartupGradientLayer: CAGradientLayer {
+    override init(layer: AnyObject) {
+        super.init(layer: layer)
+    }
 
     override init() {
         super.init()
@@ -14,7 +17,14 @@ public class StartupGradientLayer: CAGradientLayer {
         ]
         startPoint = CGPoint(x: 1, y: 1)
         endPoint = CGPoint(x: 0, y: 0)
+        addGradientAnimation()
+    }
 
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func addGradientAnimation() {
         let animation = CAKeyframeAnimation()
         animation.keyPath = "colors"
         animation.values = [
@@ -34,10 +44,6 @@ public class StartupGradientLayer: CAGradientLayer {
         animation.duration = 30
         animation.repeatCount = Float.infinity
         addAnimation(animation, forKey: "comments")
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
 }

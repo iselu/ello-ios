@@ -69,7 +69,7 @@ public enum InterfaceImage: String {
     // Relationship
     case Star = "star"
 
-    // Buy Button
+    // Hire me mail button
     case Mail = "mail"
 
     // Alert
@@ -79,6 +79,9 @@ public enum InterfaceImage: String {
     case BuyButton = "$"
     case AddBuyButton = "$_add"
     case SetBuyButton = "$_set"
+
+    // OnePassword
+    case OnePassword = "1password"
 
     // Generic
     case X = "x"
@@ -108,15 +111,15 @@ public enum InterfaceImage: String {
 
     var normalImage: UIImage! {
         switch self {
-        case .ElloLogo,
-            .BuyButton,
-            .GiantHeart,
-            .AudioPlay,
-            .VideoPlay,
+        case .AudioPlay,
             .BubbleTail,
+            .BuyButton,
+            .ElloLogo,
+            .GiantHeart,
             .NarrationPointer,
             .ValidationError,
-            .ValidationOK:
+            .ValidationOK,
+            .VideoPlay:
             return svgNamed(self.rawValue)
         default:
             return svgNamed("\(self.rawValue)_normal")
@@ -138,6 +141,7 @@ public enum InterfaceImage: String {
              .Invite,
              .Link,
              .Mail,
+             .OnePassword,
              .Pencil,
              .PlusSmall,
              .Repost,

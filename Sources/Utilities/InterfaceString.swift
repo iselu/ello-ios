@@ -248,23 +248,36 @@ public struct InterfaceString {
     }
 
     public struct Login {
-        static let EmailInvalid = NSLocalizedString("Invalid email or username", comment: "Invalid email or username message")
-        static let PasswordInvalid = NSLocalizedString("Invalid password", comment: "Invalid password message")
-        static let CredentialsInvalid = NSLocalizedString("Invalid credentials", comment: "Invalid credentials message")
+        static let Continue = NSLocalizedString("Continue", comment: "continue button")
         static let LoadUserError = NSLocalizedString("Unable to load user.", comment: "Unable to load user message")
         static let ForgotPassword = NSLocalizedString("Forgot Password", comment: "forgot password title")
+        static let UsernamePlaceholder = NSLocalizedString("Username or Email", comment: "username or email field")
+        static let PasswordPlaceholder = NSLocalizedString("Password", comment: "password field")
     }
 
     public struct Join {
+        static let Discover = NSLocalizedString("Discover Ello", comment: "discover ello button")
         static let LoginAfterJoinError = NSLocalizedString("Your account has been created, but there was an error logging in, please try again", comment: "After successfully joining, there was an error signing in")
         static let Email = NSLocalizedString("Email", comment: "email key")
-        static let EmailRequired = NSLocalizedString("Email is required.", comment: "email is required message")
-        static let EmailInvalid = NSLocalizedString("That email is invalid.\nPlease try again.", comment: "invalid email message")
+        static let EmailPlaceholder = NSLocalizedString("Enter email", comment: "sign up email field")
         static let Username = NSLocalizedString("Username", comment: "username key")
-        static let UsernameRequired = NSLocalizedString("Username is required.", comment: "username is required message")
+        static let UsernamePlaceholder = NSLocalizedString("Create username", comment: "sign up username field")
+        static let PasswordPlaceholder = NSLocalizedString("Set password", comment: "sign up password field")
+
         static let UsernameUnavailable = NSLocalizedString("Username already exists.\nPlease try a new one.", comment: "username exists error message")
-        static let UsernameSuggestionTemplate = NSLocalizedString("Here are some available usernames -\n%@", comment: "username suggestions showmes")
+        static let UsernameSuggestionPrefix = NSLocalizedString("Here are some available usernames -\n", comment: "username suggestions showmes")
         static let Password = NSLocalizedString("Password", comment: "password key")
+    }
+
+    public struct Validator {
+        static let EmailRequired = NSLocalizedString("Email is required.", comment: "email is required message")
+        static let UsernameRequired = NSLocalizedString("Username is required.", comment: "username is required message")
+        static let PasswordRequired = NSLocalizedString("Password is required.", comment: "password is required message")
+
+        static let SignInInvalid = NSLocalizedString("Invalid email or username", comment: "Invalid email or username message")
+        static let CredentialsInvalid = NSLocalizedString("Invalid credentials", comment: "Invalid credentials message")
+        static let EmailInvalid = NSLocalizedString("That email is invalid.\nPlease try again.", comment: "invalid email message")
+        static let UsernameInvalid = NSLocalizedString("That username is invalid.\nPlease try again.", comment: "invalid username message")
         static let PasswordInvalid = NSLocalizedString("Password must be at least 8\ncharacters long.", comment: "password length error message")
     }
 
