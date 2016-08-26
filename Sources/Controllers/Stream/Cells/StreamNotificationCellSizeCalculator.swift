@@ -3,12 +3,12 @@
 //
 
 
-private let textViewForSizing = ElloTextView(frame: CGRectZero, textContainer: nil)
 private var srcRegex: NSRegularExpression? = try? NSRegularExpression(
                 pattern: "src=[\"']([^\"']*)[\"']",
                 options: .CaseInsensitive)
 
 public class StreamNotificationCellSizeCalculator: NSObject, UIWebViewDelegate {
+    private static let textViewForSizing = ElloTextView(frame: CGRectZero, textContainer: nil)
     let webView: UIWebView
     var originalWidth: CGFloat
 
