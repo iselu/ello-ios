@@ -315,7 +315,7 @@ class ProfileViewControllerSpec: QuickSpec {
                     subject = ProfileViewController(userParam: "42")
                     subject.currentUser = currentUser
                 }
-                validateAllSnapshots({ return subject })
+                validateAllSnapshots { return subject }
             }
 
             xcontext("snapshots - currentUser") {
@@ -327,7 +327,7 @@ class ProfileViewControllerSpec: QuickSpec {
                     subject.currentUser = user
                     subject.updateUser(user)
                 }
-                validateAllSnapshots({ return subject })
+                validateAllSnapshots { return subject }
             }
         }
     }

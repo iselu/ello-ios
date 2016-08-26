@@ -32,7 +32,7 @@ class IntroViewControllerSpec: QuickSpec {
                 beforeEach {
                     subject = IntroViewController()
                 }
-                validateAllSnapshots({ return subject }, named: "IntroViewController")
+                validateAllSnapshots(named: "IntroViewController") { return subject }
             }
         }
     }

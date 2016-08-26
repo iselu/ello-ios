@@ -16,7 +16,7 @@ class AvatarImageSelectionViewControllerSpec: QuickSpec {
             beforeEach {
                 subject = AvatarImageSelectionViewController()
             }
-            validateAllSnapshots({ return subject }, named: "AvatarImageSelectionViewController")
+            validateAllSnapshots(named: "AvatarImageSelectionViewController") { return subject }
         }
     }
 }

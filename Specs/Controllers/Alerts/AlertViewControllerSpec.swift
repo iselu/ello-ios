@@ -34,7 +34,7 @@ class AlertViewControllerSpec: QuickSpec {
                 let action = AlertAction(title: InterfaceString.OK, style: .Dark, handler: nil)
                 subject.addAction(action)
             }
-            validateAllSnapshots({ return subject })
+            validateAllSnapshots { return subject }
         }
 
         describe("contentView") {

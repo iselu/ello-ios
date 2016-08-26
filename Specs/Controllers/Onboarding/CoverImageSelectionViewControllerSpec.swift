@@ -17,7 +17,7 @@ class CoverImageSelectionViewControllerSpec: QuickSpec {
             beforeEach {
                 subject = CoverImageSelectionViewController()
             }
-            validateAllSnapshots({ return subject })
+            validateAllSnapshots { return subject }
         }
     }
 }

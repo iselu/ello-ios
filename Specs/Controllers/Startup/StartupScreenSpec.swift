@@ -16,7 +16,7 @@ class StartupScreenSpec: QuickSpec {
                     subject = StartupScreen()
                     subject.logoImage.stopAnimating()
                 }
-                validateAllSnapshots({ return subject })
+                validateAllSnapshots { return subject }
             }
         }
     }

@@ -15,7 +15,7 @@ class AppScreenSpec: QuickSpec {
                 beforeEach {
                     subject = AppScreen()
                 }
-                validateAllSnapshots({ return subject })
+                validateAllSnapshots { return subject }
             }
         }
     }

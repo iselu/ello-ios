@@ -15,7 +15,7 @@ class HireScreenSpec: QuickSpec {
                 beforeEach {
                     subject = HireScreen(navigationItem: UINavigationItem())
                 }
-                validateAllSnapshots({ return subject })
+                validateAllSnapshots { return subject }
             }
             describe("snapshots, keyboard shown") {
                 var subject: HireScreen!

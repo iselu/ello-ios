@@ -47,7 +47,7 @@ class DrawerViewControllerSpec: QuickSpec {
                 beforeEach {
                     subject = DrawerViewController()
                 }
-                validateAllSnapshots({ return subject })
+                validateAllSnapshots { return subject }
             }
         }
     }

@@ -99,7 +99,7 @@ func expectValidSnapshot(subject: Snapshotable, named name: String? = nil, devic
     expect(subject, file: file, line: line).to(record ? recordSnapshot(named: localName) : haveValidSnapshot(named: localName))
 }
 
-func validateAllSnapshots(subject: () -> Snapshotable, named name: String? = nil, record: Bool = false, file: String = #file, line: UInt = #line) {
+func validateAllSnapshots(named name: String? = nil, record: Bool = false, file: String = #file, line: UInt = #line, subject: () -> Snapshotable) {
     for device in SnapshotDevice.all {
         context(device.description) {
             describe("view") {

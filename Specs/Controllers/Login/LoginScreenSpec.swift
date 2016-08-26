@@ -16,7 +16,7 @@ class LoginScreenSpec: QuickSpec {
             }
 
             describe("snapshots") {
-                validateAllSnapshots({ return subject })
+                validateAllSnapshots { return subject }
             }
 
             describe("snapshot, one password shown") {
