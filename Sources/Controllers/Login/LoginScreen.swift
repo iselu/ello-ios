@@ -37,6 +37,8 @@ public class LoginScreen: CredentialsScreen {
 
     override func setText() {
         titleLabel.text = InterfaceString.Startup.Login
+        usernameField.placeholder = InterfaceString.Login.UsernamePlaceholder
+        passwordField.placeholder = InterfaceString.Login.PasswordPlaceholder
         continueButton.setTitle(InterfaceString.Login.Continue, forState: .Normal)
         forgotPasswordButton.setTitle(InterfaceString.Login.ForgotPassword, forState: .Normal)
     }
@@ -52,11 +54,9 @@ public class LoginScreen: CredentialsScreen {
         super.style()
 
         ElloTextFieldView.styleAsEmailField(usernameField)
-        usernameField.placeholder = InterfaceString.Join.UsernamePlaceholder
         usernameField.delegate = self
 
         ElloTextFieldView.styleAsPasswordField(passwordField)
-        passwordField.placeholder = InterfaceString.Join.PasswordPlaceholder
         passwordField.delegate = self
         passwordField.hasOnePassword = onePasswordAvailable
 
